@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottery</title>
+</head>
+<style>
+    button{
+        margin: 2px
+    }
+</style>
+<body>
+    <div>Please Choose three numbers</div>
+    <div id = "numberBox"></div>
+    <button id="playAgain" onclick="reset()">TryAgain</button>
+    <div id="result"></div>
+</body>
+<script>
+    var randomNumbersArray = [];
+    var chosenNumberArray = [];
+
+    function numberBoxClick(){
+        var c = document.activeElement;
+        c.disabled = true;
+
+        chosenNumberArray.push(parseInt(c.innerHTML));
+
+        if(chosenNumberArray.length == 3){
+            var correctCount = 0;
+            var correctButOrderCount = 0;
+            document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers is "+randomNumbersArray;
+            if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
+                document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers is " + randomNumbersArray;
+                return;
+            }
+            
+            for(var i =0; i<3; i++){
+                if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
+
+                    if(randomNumbersArray[i] == chosenNumberArray[i]){
+                        correctCount++;
+                    }
+                    else{
+                        correctButOrderCount++;
+                    }
+
+                    if(correctButOrderCount == 3){
+                        document.getElementById("result").innerHTML = "Congratulations! you won $3,000 prize. The Lottery numbers is " + randomNumbersArray;
+                    }
+
+                    if(correctCount == 2){
+                        document.getElementById("result").innerHTML = "Congratulations! you won $1,000 prize. The Lottery numbers is " + randomNumbersArray;
+                    }
+                }
+                else{
+                    continue;
+                }
+            }
+
+        }
+    }
+
+    function createButton(){
+        var numberBox = document.getElementById("numberBox");
+        for(var i = 1; i <= 5; i++){
+            var numberButton = document.createElement("BUTTON");
+            numberButton.innerHTML = i;
+            numberButton.onclick = numberBoxClick;
+            numberBox.appendChild(numberButton);
+        }
+    }
+
+    function createRandomThreeNumbers(){
+        var rn = 0;
+        randomNumbersArray = [];
+        
+        for(var i = 0 ; i<3 ;i++){
+            do {
+                rn = parseInt(Math.random()*5+1);
+            }while(randomNumbersArray.some((arrNum) => rn === arrNum))
+            randomNumbersArray.push(rn);
+        }
+        console.log(randomNumbersArray);
+    }
+
+    function reset(){
+        createRandomThreeNumbers();
+        chosenNumberArray = [];
+        var buttons = document.getElementById("numberBox").getElementsByTagName('*');
+        for(var i = 0; i < buttons.length; i++){
+            buttons[i].disabled = false;
+        }
+        document.getElementById("result").innerHTML = "Good luck!"
+    }
+
+    createRandomThreeNumbers();
+    createButton();
+
+</script>
+</html>
