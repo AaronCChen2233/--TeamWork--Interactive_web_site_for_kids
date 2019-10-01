@@ -53,14 +53,14 @@
 
             createRandomThreeNumbers();
 
-            /*For leter check*/
+            /*For later check*/
             var correctCount = 0;
-            var correctButOrderCount = 0;
+            // var correctButOrderCount = 0;
 
-            /**/
+            /*default set you are lost*/
             document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers is "+randomNumbersArray;
-            
 
+            /*use json to compare can check all the numbers are correct(even the order)*/
             if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
                 document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers is " + randomNumbersArray;
                 return;
@@ -73,13 +73,6 @@
 
                     correctCount++;
 
-                    // if(randomNumbersArray[i] == chosenNumberArray[i]){
-                        // correctCount++;
-                    // }
-                    // else{
-                    //     correctButOrderCount++;
-                    // }
-
                     if(correctCount == 3){
                         document.getElementById("result").innerHTML = "Congratulations! you won $3,000 prize. The Lottery numbers is " + randomNumbersArray;
                     }
@@ -87,6 +80,13 @@
                     if(correctCount == 2){
                         document.getElementById("result").innerHTML = "Congratulations! you won $1,000 prize. The Lottery numbers is " + randomNumbersArray;
                     }
+
+                    // if(randomNumbersArray[i] == chosenNumberArray[i]){
+                        // correctCount++;
+                    // }
+                    // else{
+                    //     correctButOrderCount++;
+                    // }
                 }
                 else{
                     continue;
@@ -107,12 +107,14 @@
     }
 
     function createRandomThreeNumbers(){
+
         var rn = 0;
         randomNumbersArray = [];
         
         for(var i = 0 ; i<3 ;i++){
             do {
                 rn = parseInt(Math.random()*5+1);
+                /*check numbers are distinct*/
             }while(randomNumbersArray.some((arrNum) => rn === arrNum))
             randomNumbersArray.push(rn);
         }
@@ -125,10 +127,11 @@
         chosenNumberArray = [];
 
         var buttons = document.getElementById("numberBox").getElementsByTagName('*');
-
+        /*enable all button*/
         for(var i = 0; i < buttons.length; i++){
             buttons[i].disabled = false;
         }
+
         document.getElementById("result").innerHTML = "Good luck!"
     }
 
