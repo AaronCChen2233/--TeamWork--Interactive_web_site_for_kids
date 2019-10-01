@@ -22,21 +22,33 @@
     var chosenNumberArray = [];
 
     function numberBoxClick(){
+        /*Get button*/
         var c = document.activeElement;
         c.disabled = true;
 
+        /*Save user choose numbers*/
         chosenNumberArray.push(parseInt(c.innerHTML));
 
         if(chosenNumberArray.length == 3){
+
+            createRandomThreeNumbers();
+
+            /*For leter check*/
             var correctCount = 0;
             var correctButOrderCount = 0;
+
+            /**/
             document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers is "+randomNumbersArray;
+            
+
             if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
                 document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers is " + randomNumbersArray;
                 return;
             }
             
+            /**/
             for(var i =0; i<3; i++){
+
                 if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
 
                     if(randomNumbersArray[i] == chosenNumberArray[i]){
@@ -86,16 +98,19 @@
     }
 
     function reset(){
-        createRandomThreeNumbers();
+
+        // createRandomThreeNumbers();
         chosenNumberArray = [];
+
         var buttons = document.getElementById("numberBox").getElementsByTagName('*');
+        
         for(var i = 0; i < buttons.length; i++){
             buttons[i].disabled = false;
         }
         document.getElementById("result").innerHTML = "Good luck!"
     }
 
-    createRandomThreeNumbers();
+    // createRandomThreeNumbers();
     createButton();
 
 </script>
