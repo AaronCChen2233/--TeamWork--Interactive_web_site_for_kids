@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Group Final Project</title>
 </head>
+<!-- ====================================================================================================
+Game 2: Prime Number - Yuki
+In this game the user inputs an integer and shows it's a prime number or not.
+=====================================================================================================-->
+
 
 <style>
     .PrimeNumber{
@@ -29,6 +34,13 @@
         height: 50px;
         font-size: 25px;
     }
+    /* #output{
+        width: 1200px;
+        height: 200px;
+        background-color:white;
+        margin-left: 40px;
+        color: black;
+    } */
 </style>
 
 <body>
@@ -40,27 +52,32 @@
     </div>
 
     <script>
-
+    // connect button element to JS
     var button = document.getElementById("check");
     var flag =0;
 
+    // prevent default function when you click button 
     button.addEventListener("click", function(e) {
         e.preventDefault();
-    
+
+    // get textForm element to use next condition
     var textForm = document.getElementById("textForm").value;
 
+    // condition to judge a Prime number or not
     if (document.getElementById('textForm').value == ""||
         textForm >100 || textForm < 0)  {
-            document.getElementById("output").innerHTML = ('error. Please type a number from 1 to 100.');
+            document.getElementById("output").innerHTML = ('Error. Please type a number from 1 to 100.');
         return false;
     }else {
-            for( i = 2 ; i<textForm ; i++){
+            for( i = 2 ; i < textForm ; i++){
                 if(textForm % i == 0){
                     flag = 1;
                     break;
                 }
             }
         }
+
+        // show the result
         if(flag == 0){
             document.getElementById("output").innerHTML = (textForm + ' is a Prime Number'); 
         }else if(textForm == 1){
