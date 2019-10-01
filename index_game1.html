@@ -8,34 +8,51 @@
     <style>
             body {
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin: 0;
+            
             }
             #top {
                 height: 650px;
-                width: 90%;
+                width: 100%;
                 padding: 40px;
-                background-color: #8bd6f1;
+                background-color: #55c7f7;
             }
             .input{
                 height: 100px;
                 width: 90%;
+                margin: 0 auto;
                 font-size: 2em;
             }
-            button, input {
+            input {
                 font-size: 1em;
             }
-            .output {
-                height: 100px;
+            button {
+                font-size: 0.5em;
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 20px 16px;
+            }
+            button:hover {
+                background-color: rgb(252, 255, 49); 
+                color: black;
+                    }   
+            #output {
+                height: 230px;
                 width: 90%;
+                padding-top: 70px;
+                vertical-align: middle;
             }
             h1 {
                 text-align: center;
+                
             }
             #game1 {
                 width: 90%;
                 margin: 100px auto;
             }
             ul {
-                margin: 100px auto;
+                width: 90%;
+                margin: 60px auto;
             }
             li {
                 list-style: none;
@@ -47,27 +64,20 @@
                 border: 3px solid red;
                 background-color: deeppink;
             }
-            .PrimeNumber{
-                height: 650px;
-                width: 90%;
-                background-color: deeppink;
-                margin: 0 auto;
-                text-align: center;
-                color: white;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 2.5em;
-                padding: 20px;
-                border: 10px solid red;
+            .game3 {
+                border: 3px solid darkgreen;
+                background-color: green;
             }
-            #check{
-                width: 300px;
-                height: 50px;
+            .game4 {
+                border: 3px solid darkorange;
+                background-color: yellow;
             }
-            #textForm{
-                width: 300px;
-                height: 50px;
-                font-size: 25px;
-            }
+            .game2 :hover{
+                background-color: white; 
+                color: black;
+                    }  
+            
+
         </style>
 </head>
 <body>
@@ -81,7 +91,7 @@
                     <input type="text" id="name" name="name"　value="">
                     <button onclick="greeting()">Click me</button>
                 </div>
-                <div class="output">
+                <div id="output">
                     <h1 id="outputName"></h1>
                 </div>
 
@@ -89,9 +99,9 @@
             <container id="toOtherGames">
                 
                 <ul>
-                    <li class="game2">game2</li>
-                    <li class="game3">game3</li>
-                    <li class="game4">game4</li>
+                    <a href="#"><li class="game2">game2</li></a>
+                    <a href="#"><li class="game3">game3</li></a>
+                    <a href="#"><li class="game4">game4</li></a>
                 </ul>
                 
                 
@@ -107,7 +117,11 @@
     // ==============================================================================================================
     function greeting(){
     var name = document.getElementById( "name" ).value;
-    document.getElementById("outputName").innerHTML +="Hi " + name + "!" + "<br>" + "Nice work. Let’s start😁" + "<br>";
+    var outputStyle = document.getElementById('output');
+    document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
+    outputStyle.style.backgroundImage = 'url("images/cloud.png")';
+    outputStyle.style.backgroundRepeat = 'no-repeat';
+    outputStyle.style.backgroundSize = '100%';
     }
 
     </script>
