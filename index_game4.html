@@ -8,14 +8,34 @@
 </head>
 <style>
     button{
-        margin: 2px
+        margin: 20px;
+        font-size: 2em;
+        background-color:  rgb(228, 228, 175);
+        padding: 0.2em
     }
+
+    #box{
+        height: 650px;
+        width: 90%;
+        background-color: rgb(255, 255, 159);
+        margin: 0 auto;
+        text-align: center;
+        color: rgb(255, 0, 0);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 2.5em;
+        padding: 20px;
+        border: 10px solid rgb(255, 255, 0);
+    }
+
 </style>
 <body>
-    <div>Please Choose three numbers</div>
-    <div id = "numberBox"></div>
-    <button id="playAgain" onclick="reset()">TryAgain</button>
-    <div id="result"></div>
+    <div id="box">
+        <h1>Please choose three numbers</h1>
+        <div id = "numberBox"></div>
+        <button id="playAgain" onclick="reset()">TryAgain</button>
+        <br><br>
+        <div id="result">Good luck!</div>
+    </div>
 </body>
 <script>
     var randomNumbersArray = [];
