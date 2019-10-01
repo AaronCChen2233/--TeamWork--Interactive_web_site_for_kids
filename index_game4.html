@@ -51,14 +51,16 @@
 
                 if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
 
-                    if(randomNumbersArray[i] == chosenNumberArray[i]){
-                        correctCount++;
-                    }
-                    else{
-                        correctButOrderCount++;
-                    }
+                    correctCount++;
 
-                    if(correctButOrderCount == 3){
+                    // if(randomNumbersArray[i] == chosenNumberArray[i]){
+                        // correctCount++;
+                    // }
+                    // else{
+                    //     correctButOrderCount++;
+                    // }
+
+                    if(correctCount == 3){
                         document.getElementById("result").innerHTML = "Congratulations! you won $3,000 prize. The Lottery numbers is " + randomNumbersArray;
                     }
 
@@ -103,7 +105,7 @@
         chosenNumberArray = [];
 
         var buttons = document.getElementById("numberBox").getElementsByTagName('*');
-        
+
         for(var i = 0; i < buttons.length; i++){
             buttons[i].disabled = false;
         }
