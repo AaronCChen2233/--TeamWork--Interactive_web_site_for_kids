@@ -31,45 +31,31 @@ input[type="text"] {
     font-size:30px;
 }
 
-div{
-    float:right;
-    /* animation-name: cute1; */
-    animation-duration:8s; 
-    animation-iteration-count:infinite;
-    transition:4s ease-out;
-    animation-fill-mode:forwards;
-} 
-div:hover{
-    position: relative;
-    transform:translateX(-800px) rotate(1deg) scale(3,3);
-}
-/* #cute1{
-    width:80px;
-    height:80px; 
-}
-#cute2{
-    width:100px;
-    height:100px; 
-} */
+
+.pic img{transform:scale(1,1);transition: all 1s ease-out;}
+.pic img:hover{transform:scale(4,4);}
+
+
 </style>
 
-<body bgcolor="F1856E">
+<body bgcolor="FC9D81">
 
-	<table align="center" style="padding:5%">
+	<table align="center" style="padding:3%">
 		<tr>
 			<td colspan="3" align="center">
-                <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!<br>I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+                <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!</font><br>
+				<font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
 			</td>
 		</tr>
 		<tr>
-			<td align="right" width="100">
-				<font face="Trebuchet MS" size="10" id="n1"></font>
+			<td align="right" width="200">
+				<font face="Trebuchet MS" size="100" id="n1" color="0058FC"></font>
 			</td>
-			<td align="center" width="100">
-				<font face="Trebuchet MS" size="10" id="n2"></font>
+			<td align="center" width="200">
+				<font face="Trebuchet MS" size="100" id="n2" color="9EEE08"></font>
 			</td>
-			<td align="left" width="100">
-				<font face="Trebuchet MS" size="10" id="n3"></font>
+			<td align="left" width="200">
+				<font face="Trebuchet MS" size="100" id="n3" color="4EACE6"></font>
 			</td>
 		</tr>
 		<tr>
@@ -88,26 +74,19 @@ div:hover{
 			</td>
 		</tr>
 	</table>
-
-<div class="row">
-        <div>
-                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/1.png" width="200" height="200"/>
-            </div>
-        <div>
-                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/2.png" width="200" height="200"/>
-            </div>
-        <div>
-            <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/3.png" width="200" height="200"/>
-        </div>
-        <div>
-            <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/4.png" width="200" height="200"/>
-        </div>
-        <div>
-                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/5.png" width="200" height="200"/>
-            </div>
-        
-
-
+	<table align="center">
+		<tr>
+			<td>
+				<div class="pic">
+					<img style="padding:20px" src="image/1.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/2.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/3.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/4.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/5.png" width="160" height="90"/>
+				</div>
+			</td>
+		</tr>
+	</table>
 
 <script>
 // =======================
@@ -158,24 +137,6 @@ function calculation() {
 }
     
 </script>
-<script>
-        function bigImg(x) {
-          x.style.height = "10px";
-          x.style.width = "20px";
-          x.in
-        }
-    
-        function normalImg(x) {
-          x.style.height = "50px";
-          x.style.width = "50px";
-        }
-</script>
-    <!-- <div>
-    <img id="cute1" src="image/1.png" alt="cute1">
-    <video id="video" width="400" autoplay>
-    <source src="video/car driving.mp4"> -->
-    <!-- <img id="cute2" src="image/2.png" alt="cute2">
-    <video id="video" width="500" autoplay>
-    </div> -->
+
 </body>
 </html>
