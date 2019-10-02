@@ -338,6 +338,8 @@
             var outputStyle = document.getElementById('output');
             if(name == ""){
             document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+            document.getElementById("toOtherGames").style.display = "none";
+            outputStyle.style.backgroundImage = 'none';
 
             }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
