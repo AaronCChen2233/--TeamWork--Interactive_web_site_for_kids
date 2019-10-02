@@ -16,21 +16,20 @@
 
         #mainbody {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin: 0;
+            width: 90%;
+            margin: 0 auto;
             height: 100%;
         }
+        
 
         #top {
-            /* height: 100%; */
-            /* width: 100%; */
             padding: 40px;
             
         }
 
         .input{
             height: 100px;
-            width: 90%;
-            margin: 0 auto;
+            text-align: center;
             font-size: 2em;
         }
 
@@ -199,7 +198,7 @@
         /*game4style*/
         button{
             margin: 20px;
-            font-size: 2em;
+            font-size: 1em;
             background-color:  rgb(228, 228, 175);
             padding: 0.2em
         }
@@ -209,10 +208,11 @@
             width: 90%;
             background-color: rgb(255, 255, 159);
             margin: 0 auto;
+            margin-bottom: 30px;
             text-align: center;
-            color: rgb(255, 0, 0);
+            color: rgb(255, 86, 86);
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5em;
+            font-size: -webkit-xxx-large;
             padding: 20px;
             border: 10px solid rgb(255, 255, 0);
         }
@@ -311,11 +311,11 @@
     
 
         <div id="game4div">
-                <h1>Please choose three numbers</h1>
+                <div>PLEASE CHOOSE THREE NUMBERS</div>
                 <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
+                <button disabled="true" id="playAgain" onclick="reset()">TRY AGAIN</button>
                 <br><br>
-                <h1 id="result">Good luck!</h1>
+                <div id="result">GOOD LUCK!</div>
         </div>
 
     <script>
@@ -326,15 +326,25 @@
         // Hello &lt;the name that user input&gt;, Nice work! Let’s start!
         // ==============================================================================================================
         
+        function unfunction(){
+            document.querySelector("#name").addEventListener("invalid", function(event) {
+            event.preventDefault();
+        }, false);
+
+        }
         function greeting(){
             var name = document.getElementById( "name" ).value;
             var outputStyle = document.getElementById('output');
+            if(name == ""){
+            document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+
+            }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
             outputStyle.style.backgroundImage = 'url("image/cloud.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '100%';
+            }
         }
-
         //Get the button
         var mybutton = document.getElementById("goTopBtn");
 
@@ -342,7 +352,7 @@
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
@@ -425,6 +435,7 @@
                 document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
         }
+
         // ====================================================================================================
         // Game 3: Calculate - Peri
         // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
