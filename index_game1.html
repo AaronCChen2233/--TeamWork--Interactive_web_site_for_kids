@@ -88,8 +88,8 @@
 
         .game3{
             margin: 1em;
-            border: 3px solid darkgreen;
-            background-color: rgb(78, 255, 78);
+            border: 3px solid #EDB4B4;
+            background-color: #FB8080;
             font-size: 3em;
         }
 
@@ -119,7 +119,7 @@
             text-align: center;
         }
 
-        #game2div,#game4div{
+        #game2div,#game3div,#game4div{
             display: none;
         }
 
@@ -130,6 +130,7 @@
             bottom: 20px;
             right: 80px;
             background-color: #55c7f7;
+            font-size: 4em;
         }
 
         #goTopBtn:hover {
@@ -164,6 +165,36 @@
             font-size: 25px;
         }
 
+        /*game3style*/
+        .effect{
+            animation:blink 1s infinite;
+        }
+
+        button{
+            background-color:yellow;
+            font-size: 32px;
+        }
+
+        button:hover{
+            background-color:orange;
+        }
+
+        input[type="text"] {
+            font-size:30px;
+        }
+        #game3div{
+            width: 90%;
+            height: 90%;
+            margin: 0 auto;
+            border: 5px solid white;
+            margin-bottom: 30px;
+            background-color: rgb(244, 120, 120);
+        }
+
+
+        .pic img{transform:scale(1,1);transition: all 1s ease-out;}
+        .pic img:hover{transform:scale(4,4);}
+
         /*game4style*/
         button{
             margin: 20px;
@@ -184,6 +215,7 @@
             padding: 20px;
             border: 10px solid rgb(255, 255, 0);
         }
+        
     </style>
 </head>
 <body id = "mainbody">
@@ -205,8 +237,8 @@
                 </div>
 
             </container>
-            <container id="toOtherGames">
 
+            <container id="toOtherGames">
                 <ul>
                     <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;"> prime number</li></a>
                     <a id="game3" href="#"><li class="game3" onclick="showGame(); return false;" >Calculator</li></a>
@@ -225,15 +257,67 @@
             </div>
         </div>
 
+        
+        <div id="game3div">
+            <table align="center" style="padding:3%">
+                <tr>
+                    <td colspan="3" align="center">
+                        <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!</font><br>
+                        <font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">
+                        <font face="Trebuchet MS" size="100" id="n1" color="0058FC"></font>
+                    </td>
+                    <td align="center" width="200">
+                        <font face="Trebuchet MS" size="100" id="n2" color="9EEE08"></font>
+                    </td>
+                    <td align="left" width="200">
+                        <font face="Trebuchet MS" size="100" id="n3" color="4EACE6"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3">
+                        <input id="input" type="text" id="ans" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3" height="80">
+                        <button class="button_cont" onclick="calculation()">Click Me</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3">
+                        <font face="Trebuchet MS" size="8" color="white" id="demo"></font>
+                    </td>
+                </tr>
+            </table>
+            <table align="center">
+                <tr>
+                    <td>
+                        <div class="pic">
+                            <img style="padding:20px" src="image/1.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/2.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/3.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/4.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/5.png" width="160" height="90"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    
+
         <div id="game4div">
                 <h1>Please choose three numbers</h1>
                 <div id = "numberBox"></div>
                 <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
                 <br><br>
-                <div id="result">Good luck!</div>
+                <h1 id="result">Good luck!</h1>
         </div>
-    <script>
 
+    <script>
         // ==============================================================================================================
         // Game 1: Hello John, let’s start! - Ayaka
         // You should create a page that gets the user’s name and as a result of clicking a button it would come up
@@ -264,20 +348,25 @@
             }
         }
 
+        var nIntervId;
+
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-            hideAllGame();
+
+            //here will scroll to top then hide game;
+            nIntervId = window.setInterval(hideAllGame, 500);
         }
 
         function hideAllGame(){
             var elmnt2 = document.getElementById("game2div");
-            // var elmnt3 = document.getElementById("game3div");
+            var elmnt3 = document.getElementById("game3div");
             var elmnt4 = document.getElementById("game4div");
             elmnt2.style.display = "none";
-            // elmnt3.display = "none";
+            elmnt3.style.display = "none";
             elmnt4.style.display = "none";
+            clearInterval(nIntervId);
         }
 
         function showGame(){
@@ -290,7 +379,7 @@
                     document.getElementById("game2div").style.display = "block";
                     break;
                 case "game3":
-                    document.getElementById("game3div").style.display = "block";
+                    // document.getElementById("game3div").style.display = "block";
                     break;
                 case "game4":                    
                     document.getElementById("game4div").style.display = "block";
@@ -335,6 +424,58 @@
                 document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌😌😌');
             }
         }
+        // ====================================================================================================
+        // Game 3: Calculate - Peri
+        // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
+        // correct” or “You are wrong, work har1der”. 
+        // =====================================================================================================
+
+        // =======================
+        // function start - start
+        // =======================
+        function start(){
+            var text=document.getelementById("text");
+            text.classList.add("effect");
+        }
+        // =======================
+        //function start - end
+        // =======================
+
+
+        var n1 = getRndInteger(1, 20);
+        document.getElementById("n1").innerHTML = n1;
+
+        var formula = ["+", "-", "*", "/"];
+        var n2 = formula[getRndInteger(0,4)];
+        document.getElementById("n2").innerHTML = n2;
+
+        var n3 = getRndInteger(1, 20);
+        document.getElementById("n3").innerHTML = n3;
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function calculation() {
+            var sum = 0;
+            var ans = document.getElementById("input").value;
+            if("+" == n2) {
+                sum = n1 + n3;
+            } else if("-" == n2) {
+                sum = n1 - n3;
+            } else if("*" == n2) {
+                sum = n1 * n3;
+            } else if("/" == n2) {
+                sum = Math.round(n1 / n3);
+            }
+            
+            var result = "OOPS, PLEASE TRY AGAIN!";
+            if(ans == sum){
+                result = "BINGO! YOU ARE SO SMART!";
+            }
+            
+            document.getElementById("demo").innerHTML = result;
+        }
 
         //===================================================================================================
         // Game 4: PLottery - Aaron
@@ -349,6 +490,11 @@
         var chosenNumberArray = [];
 
         function numberBoxClick(){
+            /*if already chosen just go back*/
+            if(chosenNumberArray.length >= 3){
+                return;
+            }
+
             /*Get button*/
             var c = document.activeElement;
             c.disabled = true;
