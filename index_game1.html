@@ -130,6 +130,7 @@
             bottom: 20px;
             right: 80px;
             background-color: #55c7f7;
+            font-size: 4em;
         }
 
         #goTopBtn:hover {
@@ -205,8 +206,8 @@
                 </div>
 
             </container>
-            <container id="toOtherGames">
 
+            <container id="toOtherGames">
                 <ul>
                     <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;">Guess prime number</li></a>
                     <a id="game3" href="#"><li class="game3" onclick="showGame(); return false;" >Calculator</li></a>
@@ -230,10 +231,10 @@
                 <div id = "numberBox"></div>
                 <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
                 <br><br>
-                <div id="result">Good luck!</div>
+                <h1 id="result">Good luck!</h1>
         </div>
-    <script>
 
+    <script>
         // ==============================================================================================================
         // Game 1: Hello John, let’s start! - Ayaka
         // You should create a page that gets the user’s name and as a result of clicking a button it would come up
@@ -264,11 +265,15 @@
             }
         }
 
+        var nIntervId;
+
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-            hideAllGame();
+
+            //here will scroll to top then hide game;
+            nIntervId = window.setInterval(hideAllGame, 500);
         }
 
         function hideAllGame(){
@@ -278,6 +283,7 @@
             elmnt2.style.display = "none";
             // elmnt3.display = "none";
             elmnt4.style.display = "none";
+            clearInterval(nIntervId);
         }
 
         function showGame(){
@@ -290,7 +296,7 @@
                     document.getElementById("game2div").style.display = "block";
                     break;
                 case "game3":
-                    document.getElementById("game3div").style.display = "block";
+                    // document.getElementById("game3div").style.display = "block";
                     break;
                 case "game4":                    
                     document.getElementById("game4div").style.display = "block";
@@ -349,6 +355,11 @@
         var chosenNumberArray = [];
 
         function numberBoxClick(){
+            /*if already chosen just go back*/
+            if(chosenNumberArray.length >= 3){
+                return;
+            }
+
             /*Get button*/
             var c = document.activeElement;
             c.disabled = true;
