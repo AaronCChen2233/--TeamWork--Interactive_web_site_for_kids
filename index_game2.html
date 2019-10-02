@@ -57,39 +57,39 @@ In this game the user inputs an integer and shows it's a prime number or not.
     </div>
 
     <script>
-    // connect button element to JS
-    var button = document.getElementById("check");
-    var flag =0;
+        // connect button element to JS
+        var button = document.getElementById("check");
+        var flag =0;
 
-    // prevent default function when you click button 
-    button.addEventListener("click", function(e) {
-        e.preventDefault();
+        // prevent default function when you click button 
+        button.addEventListener("click", function(e) {
 
-    // get textForm element to use next condition
-    var textForm = document.getElementById("textForm").value;
+            e.preventDefault();
+            // get textForm element to use next condition
+            var textForm = document.getElementById("textForm").value;
 
-    // condition to judge a Prime number or not
-    if (document.getElementById('textForm').value == ""||
-        textForm >100 || textForm < 0)  {
-            document.getElementById("output").innerHTML = ('Error. Please type a number from 1 to 100.😵');
-        return false;
-    }else {
-            for( i = 2 ; i < textForm ; i++){
-                if(textForm % i == 0){
-                    flag = 1;
-                    break;
+            // condition to judge a Prime number or not
+            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
+                document.getElementById("output").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                return false;
+            }else{
+                for( i = 2 ; i < textForm ; i++){
+                    if(textForm % i == 0){
+                        flag = 1;
+                        break;
+                    }
                 }
             }
-        }
 
-        // show the result
-        if(flag == 0){
-            document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫'); 
-        }else if(textForm == 1){
-            document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫');
-        }else{
-            document.getElementById("output").innerHTML = (textForm + ' is not a Prime Number😌');
-        }
+            // show the result
+            if(flag == 0){
+                document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫'); 
+            }else if(textForm == 1){
+                document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫');
+            }else{
+                document.getElementById("output").innerHTML = (textForm + ' is not a Prime Number😌');
+            }
+
     });
 
     </script>

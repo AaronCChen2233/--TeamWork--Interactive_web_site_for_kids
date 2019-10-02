@@ -1,86 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="mainhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-            body {
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                margin: 0;
-            
-            }
-            #top {
-                height: 650px;
-                width: 100%;
-                padding: 40px;
-                background-color: #55c7f7;
-            }
-            .input{
-                height: 100px;
-                width: 90%;
-                margin: 0 auto;
-                font-size: 2em;
-            }
-            input {
-                font-size: 1em;
-            }
-            button {
-                font-size: 0.5em;
-                background-color: #fff;
-                border-radius: 50%;
-                padding: 20px 16px;
-            }
-            button:hover {
-                background-color: rgb(252, 255, 49); 
-                color: black;
-                    }   
-            #output {
-                height: 230px;
-                width: 90%;
-                padding-top: 70px;
-                vertical-align: middle;
-            }
-            h1 {
-                text-align: center;
-                
-            }
-            #game1 {
-                width: 90%;
-                margin: 100px auto;
-            }
-            ul {
-                width: 90%;
-                margin: 60px auto;
-            }
-            li {
-                list-style: none;
-                display: inline;
-                border: 3px solid black;
-                padding: 30px 60px;
-            }
-            .game2 {
-                border: 3px solid red;
-                background-color: deeppink;
-            }
-            .game3 {
-                border: 3px solid darkgreen;
-                background-color: green;
-            }
-            .game4 {
-                border: 3px solid darkorange;
-                background-color: yellow;
-            }
-            .game2 :hover{
-                background-color: white; 
-                color: black;
-                    }  
-            
+        /* main page style */
+        html {
+            height: 100%;
+            margin: 0;
+            background-color: #55c7f7;
+        }
 
-        </style>
+        #mainbody {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            height: 100%;
+        }
+
+        #top {
+            /* height: 100%; */
+            /* width: 100%; */
+            padding: 40px;
+            
+        }
+
+        .input{
+            height: 100px;
+            width: 90%;
+            margin: 0 auto;
+            font-size: 2em;
+        }
+
+        input {
+            font-size: 1em;
+        }
+        
+        #clckMe {
+            font-size: 0.5em;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 20px 16px;
+        }
+
+        #clckMe:hover{
+            background-color: rgb(252, 255, 49); 
+            color: black;
+        }
+
+        #output {
+            height: 230px;
+            /* width: 90%; */
+            padding-top: 70px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        #game1 {
+            width: 90%;
+            margin: 100px auto;
+        }
+
+        ul {
+            width: 90%;
+            margin: 60px auto;
+        }
+
+        li {
+            list-style: none;
+            display: inline;
+            border: 3px solid black;
+            padding: 30px 60px;
+        }
+
+        .game2{
+            margin: 1em;
+            border: 3px solid red;
+            background-color: deeppink;
+            font-size: 3em;
+        }
+
+        .game3{
+            margin: 1em;
+            border: 3px solid darkgreen;
+            background-color: rgb(78, 255, 78);
+            font-size: 3em;
+        }
+
+        .game4{
+            margin: 1em;
+            border: 3px solid rgb(255, 255, 0);
+            background-color: rgb(255, 255, 159);
+            font-size: 3em;
+        }
+
+        .game2:hover{
+            background-color: rgb(208, 219, 255); 
+            color: black;
+        }
+
+        .game3:hover{
+            background-color:rgb(208, 219, 255); 
+            color: black;
+        }
+
+        .game4:hover{
+            background-color:rgb(208, 219, 255); 
+            color: black;
+        }
+
+        #toOtherGames{
+            text-align: center;
+        }
+
+        #game2div,#game4div{
+            display: none;
+        }
+
+        /* game2 style */
+        .PrimeNumber{
+            /* height: 750px; */
+            height: 100%;
+            width: 90%;
+            background-color: deeppink;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5em;
+            padding: 20px;
+            border: 10px solid red;
+        }
+
+        #check{
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        #textForm{
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        /*game4style*/
+        button{
+            margin: 20px;
+            font-size: 2em;
+            background-color:  rgb(228, 228, 175);
+            padding: 0.2em
+        }
+
+        #game4div{
+            /* height: 650px; */
+            width: 90%;
+            background-color: rgb(255, 255, 159);
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5em;
+            padding: 20px;
+            border: 10px solid rgb(255, 255, 0);
+        }
+    </style>
 </head>
-<body>
+<body id = "mainbody">
     <main id="top">
         <header>
             <h1>Let’s play with numbers!</h1>
@@ -89,7 +180,8 @@
                 <div class="input">
                     <label for="name">Tell me your name:</label>
                     <input type="text" id="name" name="name"　value="">
-                    <button onclick="greeting()">Click me</button>
+                    <button id="clckMe" onclick="greeting()">Confirm</button>
+                    <!-- <button onclick="greeting()">Click me</button> -->
                 </div>
                 <div id="output">
                     <h1 id="outputName"></h1>
@@ -99,30 +191,205 @@
             <container id="toOtherGames">
                 
                 <ul>
-                    <a href="#"><li class="game2">game2</li></a>
-                    <a href="#"><li class="game3">game3</li></a>
-                    <a href="#"><li class="game4">game4</li></a>
-                </ul>
-                
-                
+                    <a id="game2" href="#"><li class="game2" onclick="showGame()">game2</li></a>
+                    <a id="game3" href="#"><li class="game3" onclick="showGame()" >game3</li></a>
+                    <a id="game4" href="#"><li class="game4" onclick="showGame()" >game4</li></a>
+                </ul>1
 
-                
-                
             </container>
         </main>
 
+        <div id="game2div">
+            <div class="PrimeNumber">
+                <h1 id="typeNumber">Please put number from 1 to 100</h1>
+                <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
+                <button id="check" onclick="check()">Check</button>
+                <h1 id="primeOutput"></h1>
+            </div>
+        </div>
+
+        <div id="game4div">
+                <h1>Please choose three numbers</h1>
+                <div id = "numberBox"></div>
+                <button id="playAgain" onclick="reset()">TryAgain</button>
+                <br><br>
+                <div id="result">Good luck!</div>
+        </div>
     <script>
-    // ==============================================================================================================
-    // Game 1: Hello John, let’s start!  
-    // ==============================================================================================================
-    function greeting(){
-    var name = document.getElementById( "name" ).value;
-    var outputStyle = document.getElementById('output');
-    document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
-    outputStyle.style.backgroundImage = 'url("images/cloud.png")';
-    outputStyle.style.backgroundRepeat = 'no-repeat';
-    outputStyle.style.backgroundSize = '100%';
-    }
+        // ==============================================================================================================
+        // Game 1: Hello John, let’s start!  
+        // ==============================================================================================================
+        function greeting(){
+            var name = document.getElementById( "name" ).value;
+            var outputStyle = document.getElementById('output');
+            document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
+            outputStyle.style.backgroundImage = 'url("images/cloud.png")';
+            outputStyle.style.backgroundRepeat = 'no-repeat';
+            outputStyle.style.backgroundSize = '100%';
+        }
+
+        function showGame(){
+            var gameClassName = document.activeElement.id;
+
+            var elmnt2 = document.getElementById("game2div");
+            // var elmnt3 = document.getElementById("game3div");
+            var elmnt4 = document.getElementById("game4div");
+            elmnt2.style.display = "none";
+            // elmnt3.display = "none";
+            elmnt4.style.display = "none";
+            debugger;
+            switch(gameClassName){
+                case "game2":
+                    elmnt2.style.display = "block";
+                    break;
+                case "game3":
+
+                    break;
+                case "game4":                    
+                    elmnt4.style.display = "block";
+                    break;
+            }
+            console.log(gameClassName);
+            // alert( "Handler for .click() called." );
+        }
+
+        //===================================================================================================
+        // Game 2: Prime Number - Yuki
+        // In this game the user inputs an integer and shows it's a prime number or not.
+        // ==================================================================================================
+        function check() {
+            // connect button element to JS
+            // var button = document.getElementById("check");
+            var flag =0;
+            // get textForm element to use next condition
+            var textForm = document.getElementById("textForm").value;
+
+            // condition to judge a Prime number or not
+            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
+                document.getElementById("primeOutput").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                return false;
+            }else{
+                for( i = 2 ; i < textForm ; i++){
+                    if(textForm % i == 0){
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+
+            // show the result
+            if(flag == 0){
+                document.getElementById("primeOutput").innerHTML = (textForm + ' is a Prime Number💫'); 
+            }else if(textForm == 1){
+                document.getElementById("primeOutput").innerHTML = (textForm + ' is a Prime Number💫');
+            }else{
+                document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌');
+            }
+        }
+
+        //===================================================================================================
+        // Game 4: PLottery - Aaron
+        // 
+        // ==================================================================================================
+        var randomNumbersArray = [];
+        var chosenNumberArray = [];
+
+        function numberBoxClick(){
+            /*Get button*/
+            var c = document.activeElement;
+            c.disabled = true;
+
+            /*Save user choose numbers*/
+            chosenNumberArray.push(parseInt(c.innerHTML));
+
+            if(chosenNumberArray.length == 3){
+
+                createRandomThreeNumbers();
+
+                /*For later check*/
+                var correctCount = 0;
+                // var correctButOrderCount = 0;
+
+                /*default set you are lost*/
+                document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers are "+randomNumbersArray;
+
+                /*use json to compare can check all the numbers are correct(even the order)*/
+                if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
+                    document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers are " + randomNumbersArray;
+                    return;
+                }
+                
+                /**/
+                for(var i =0; i<3; i++){
+
+                    if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
+
+                        correctCount++;
+
+                        if(correctCount == 3){
+                            document.getElementById("result").innerHTML = "Congratulations! you won $3,000 prize. The Lottery numbers are " + randomNumbersArray;
+                        }
+
+                        if(correctCount == 2){
+                            document.getElementById("result").innerHTML = "Congratulations! you won $1,000 prize. The Lottery numbers are " + randomNumbersArray;
+                        }
+
+                        // if(randomNumbersArray[i] == chosenNumberArray[i]){
+                            // correctCount++;
+                        // }
+                        // else{
+                        //     correctButOrderCount++;
+                        // }
+                    }
+                    else{
+                        continue;
+                    }
+                }
+
+            }
+        }
+
+        function createButton(){
+            var numberBox = document.getElementById("numberBox");
+            for(var i = 1; i <= 5; i++){
+                var numberButton = document.createElement("BUTTON");
+                numberButton.innerHTML = i;
+                numberButton.onclick = numberBoxClick;
+                numberBox.appendChild(numberButton);
+            }
+        }
+
+        function createRandomThreeNumbers(){
+
+            var rn = 0;
+            randomNumbersArray = [];
+            
+            for(var i = 0 ; i<3 ;i++){
+                do {
+                    rn = parseInt(Math.random()*5+1);
+                    /*check numbers are distinct*/
+                }while(randomNumbersArray.some((arrNum) => rn === arrNum))
+                randomNumbersArray.push(rn);
+            }
+            console.log(randomNumbersArray);
+        }
+
+        function reset(){
+
+            // createRandomThreeNumbers();
+            chosenNumberArray = [];
+
+            var buttons = document.getElementById("numberBox").getElementsByTagName('*');
+            /*enable all button*/
+            for(var i = 0; i < buttons.length; i++){
+                buttons[i].disabled = false;
+            }
+
+            document.getElementById("result").innerHTML = "Good luck!"
+        }
+
+        // createRandomThreeNumbers();
+        createButton();
 
     </script>
 </body>
