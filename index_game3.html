@@ -12,61 +12,170 @@ correct” or “You are wrong, work har1der”.
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-		
-    <h2 id="n1">Random Number 1: </h2>
-    <p></p>
 
-    <h2 id="n2">Random Number 2: </h2>
-    <p></p>
+<style type ="text/css">
+.effect{
+    animation:blink 1s infinite;
+}
 
-    <h2 id="n3">Random Number 3: </h2>
-    <p></p>
-    
-    <input id="input" type="text" id="ans" size="3">
-    
-    <button onclick="calculation()">Click Me</button>
-    
-    <p id="demo"></p>
+button{
+  background-color:yellow;
+  font-size: 32px;
+}
 
-    <script>
+button:hover{
+    background-color:orange;
+}
+
+input[type="text"] {
+    font-size:30px;
+}
+
+div{
+    float:right;
+    /* animation-name: cute1; */
+    animation-duration:8s; 
+    animation-iteration-count:infinite;
+    transition:4s ease-out;
+    animation-fill-mode:forwards;
+} 
+div:hover{
+    position: relative;
+    transform:translateX(-800px) rotate(1deg) scale(3,3);
+}
+/* #cute1{
+    width:80px;
+    height:80px; 
+}
+#cute2{
+    width:100px;
+    height:100px; 
+} */
+</style>
+
+<body bgcolor="F1856E">
+
+	<table align="center" style="padding:5%">
+		<tr>
+			<td colspan="3" align="center">
+                <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!<br>I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="100">
+				<font face="Trebuchet MS" size="10" id="n1"></font>
+			</td>
+			<td align="center" width="100">
+				<font face="Trebuchet MS" size="10" id="n2"></font>
+			</td>
+			<td align="left" width="100">
+				<font face="Trebuchet MS" size="10" id="n3"></font>
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3">
+				<input id="input" type="text" id="ans" size="20">
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3" height="80">
+				<button class="button_cont" onclick="calculation()">Click Me</button>
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3">
+				<font face="Trebuchet MS" size="8" color="white" id="demo"></font>
+			</td>
+		</tr>
+	</table>
+
+<div class="row">
+        <div>
+                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/1.png" width="200" height="200"/>
+            </div>
+        <div>
+                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/2.png" width="200" height="200"/>
+            </div>
+        <div>
+            <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/3.png" width="200" height="200"/>
+        </div>
+        <div>
+            <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/4.png" width="200" height="200"/>
+        </div>
+        <div>
+                <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="image/5.png" width="200" height="200"/>
+            </div>
         
-        var n1 = getRndInteger(1, 100);
-        document.getElementById("n1").innerHTML = n1;
-        
-        var formula = ["+", "-", "*", "/"];
-        var n2 = formula[getRndInteger(0,4)];
-        document.getElementById("n2").innerHTML = n2;
-        
-        var n3 = getRndInteger(1, 100);
-        document.getElementById("n3").innerHTML = n3;
-        
-        function getRndInteger(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
+
+
+
+<script>
+// =======================
+// function start - start
+// =======================
+function start(){
+    var text=document.getelementById("text");
+    text.classList.add("effect");
+}
+// =======================
+//function start - end
+// =======================
+
+
+var n1 = getRndInteger(1, 100);
+document.getElementById("n1").innerHTML = n1;
+
+var formula = ["+", "-", "*", "/"];
+var n2 = formula[getRndInteger(0,4)];
+document.getElementById("n2").innerHTML = n2;
+
+var n3 = getRndInteger(1, 100);
+document.getElementById("n3").innerHTML = n3;
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function calculation() {
+    var sum = 0;
+    var ans = document.getElementById("input").value;
+    if("+" == n2) {
+        sum = n1 + n3;
+    } else if("-" == n2) {
+        sum = n1 - n3;
+    } else if("*" == n2) {
+        sum = n1 * n3;
+    } else if("/" == n2) {
+        sum = Math.round(n1 / n3);
+    }
+    
+    var result = "OOPS, PLEASE TRY AGAIN!";
+    if(ans == sum){
+        result = "BINGO! YOU ARE SO SMART!";
+    }
+    
+    document.getElementById("demo").innerHTML = result;
+}
+    
+</script>
+<script>
+        function bigImg(x) {
+          x.style.height = "10px";
+          x.style.width = "20px";
+          x.in
         }
-        
-        function calculation() {
-            var sum = 0;
-            var ans = document.getElementById("input").value;
-            if("+" == n2) {
-                sum = n1 + n3;
-            } else if("-" == n2) {
-                sum = n1 - n3;
-            } else if("*" == n2) {
-                sum = n1 * n3;
-            } else if("/" == n2) {
-                sum = Math.round(n1 / n3);
-            }
-            
-            var result = "You are wrong.";
-            if(ans == sum){
-                result = "You are correct.";
-            }
-            
-            document.getElementById("demo").innerHTML = result;
+    
+        function normalImg(x) {
+          x.style.height = "50px";
+          x.style.width = "50px";
         }
-        
-    </script>
-
+</script>
+    <!-- <div>
+    <img id="cute1" src="image/1.png" alt="cute1">
+    <video id="video" width="400" autoplay>
+    <source src="video/car driving.mp4"> -->
+    <!-- <img id="cute2" src="image/2.png" alt="cute2">
+    <video id="video" width="500" autoplay>
+    </div> -->
 </body>
 </html>
