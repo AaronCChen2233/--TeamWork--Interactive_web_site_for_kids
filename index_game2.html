@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Group Final Project</title>
+</head>
+<!-- ====================================================================================================
+Game 2: Prime Number - Yuki
+In this game the user inputs an integer and shows it's a prime number or not.
+=====================================================================================================-->
+
+
+<style>
+    
+    .PrimeNumber{
+        height: 650px;
+        width: 90%;
+        background-color: deeppink;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 2.5em;
+        padding: 20px;
+        border: 10px solid red;
+    }
+
+    #check{
+        width: 300px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    #textForm{
+        width: 300px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    /* #output{
+        width: 1200px;
+        height: 200px;
+        background-color:white;
+        margin-left: 40px;
+        color: black;
+    } */
+</style>
+
+<body>
+    <div class="PrimeNumber">
+        <h1 id="typeNumber">Please put number from 1 to 100</h1>
+        <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
+        <button id="check">Check</button>
+        <h1 id="output"></h1>
+    </div>
+
+    <script>
+        // connect button element to JS
+        var button = document.getElementById("check");
+        var flag =0;
+
+        // prevent default function when you click button 
+        button.addEventListener("click", function(e) {
+
+            e.preventDefault();
+            // get textForm element to use next condition
+            var textForm = document.getElementById("textForm").value;
+
+            // condition to judge a Prime number or not
+            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
+                document.getElementById("output").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                return false;
+            }else{
+                for( i = 2 ; i < textForm ; i++){
+                    if(textForm % i == 0){
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+
+            // show the result
+            if(flag == 0){
+                document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫'); 
+            }else if(textForm == 1){
+                document.getElementById("output").innerHTML = (textForm + ' is a Prime Number💫');
+            }else{
+                document.getElementById("output").innerHTML = (textForm + ' is not a Prime Number😌');
+            }
+
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!-- ====================================================================================================
+Game 3: Calculate - Peri
+Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
+correct” or “You are wrong, work har1der”. 
+=====================================================================================================-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style type ="text/css">
+.effect{
+    animation:blink 1s infinite;
+}
+
+button{
+  background-color:yellow;
+  font-size: 32px;
+}
+
+button:hover{
+    background-color:orange;
+}
+
+input[type="text"] {
+    font-size:30px;
+}
+
+
+.pic img{transform:scale(1,1);transition: all 1s ease-out;}
+.pic img:hover{transform:scale(4,4);}
+
+
+</style>
+
+<body bgcolor="FC9D81">
+
+	<table align="center" style="padding:3%">
+		<tr>
+			<td colspan="3" align="center">
+                <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!</font><br>
+				<font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="200">
+				<font face="Trebuchet MS" size="100" id="n1" color="0058FC"></font>
+			</td>
+			<td align="center" width="200">
+				<font face="Trebuchet MS" size="100" id="n2" color="9EEE08"></font>
+			</td>
+			<td align="left" width="200">
+				<font face="Trebuchet MS" size="100" id="n3" color="4EACE6"></font>
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3">
+				<input id="input" type="text" id="ans" size="20">
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3" height="80">
+				<button class="button_cont" onclick="calculation()">Click Me</button>
+			</td>
+		</tr>
+		<tr>
+			<td align ="center" colspan="3">
+				<font face="Trebuchet MS" size="8" color="white" id="demo"></font>
+			</td>
+		</tr>
+	</table>
+	<table align="center">
+		<tr>
+			<td>
+				<div class="pic">
+					<img style="padding:20px" src="image/1.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/2.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/3.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/4.png" width="90" height="90"/>
+					<img style="padding:20px" src="image/5.png" width="160" height="90"/>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+<script>
+// =======================
+// function start - start
+// =======================
+function start(){
+    var text=document.getelementById("text");
+    text.classList.add("effect");
+}
+// =======================
+//function start - end
+// =======================
+
+
+var n1 = getRndInteger(1, 100);
+document.getElementById("n1").innerHTML = n1;
+
+var formula = ["+", "-", "*", "/"];
+var n2 = formula[getRndInteger(0,4)];
+document.getElementById("n2").innerHTML = n2;
+
+var n3 = getRndInteger(1, 100);
+document.getElementById("n3").innerHTML = n3;
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function calculation() {
+    var sum = 0;
+    var ans = document.getElementById("input").value;
+    if("+" == n2) {
+        sum = n1 + n3;
+    } else if("-" == n2) {
+        sum = n1 - n3;
+    } else if("*" == n2) {
+        sum = n1 * n3;
+    } else if("/" == n2) {
+        sum = Math.round(n1 / n3);
+    }
+    
+    var result = "OOPS, PLEASE TRY AGAIN!";
+    if(ans == sum){
+        result = "BINGO! YOU ARE SO SMART!";
+    }
+    
+    document.getElementById("demo").innerHTML = result;
+}
+    
+</script>
+
+</body>
+</html>

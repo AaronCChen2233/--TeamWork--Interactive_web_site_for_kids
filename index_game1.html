@@ -1,25 +1,609 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="mainhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Let’s play with numbers!</title>
+    <style>
+        /* main page style */
+        html {
+            height: 100%;
+            margin: 0;
+            background-color: #55c7f7;
+            scroll-behavior: smooth;
+        }
+
+        #mainbody {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 90%;
+            margin: 0 auto;
+            height: 100%;
+        }
+        
+
+        #top {
+            padding: 40px;
+            
+        }
+
+        .input{
+            height: 100px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        input {
+            font-size: 1em;
+        }
+        
+        #clckMe {
+            font-size: 0.5em;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 20px 16px;
+        }
+
+        #clckMe:hover{
+            background-color: rgb(252, 255, 49); 
+            color: black;
+        }
+
+        #output {
+            height: 230px;
+            /* width: 90%; */
+            padding-top: 70px;
+            vertical-align: middle;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        #game1 {
+            width: 90%;
+            margin: 100px auto;
+        }
+
+        ul {
+            width: 90%;
+            margin: 60px auto;
+        }
+
+        li {
+            list-style: none;
+            /* display: inline; */
+            border: 3px solid black;
+            padding: 30px 60px;
+        }
+
+        .game2{
+            margin: 1em;
+            border: 3px solid red;
+            background-color: deeppink;
+            font-size: 3em;
+        }
+
+        .game3{
+            margin: 1em;
+            border: 3px solid #EDB4B4;
+            background-color: #FB8080;
+            font-size: 3em;
+        }
+
+        .game4{
+            margin: 1em;
+            border: 3px solid rgb(255, 255, 0);
+            background-color: rgb(255, 255, 159);
+            font-size: 3em;
+        }
+
+        .game2:hover{
+            background-color: rgb(208, 219, 255); 
+            color: black;
+        }
+
+        .game3:hover{
+            background-color:rgb(208, 219, 255); 
+            color: black;
+        }
+
+        .game4:hover{
+            background-color:rgb(208, 219, 255); 
+            color: black;
+        }
+
+        #toOtherGames{
+            text-align: center;
+            display: none;
+        }
+
+        #game2div,#game3div,#game4div{
+            display: none;
+        }
+
+        #goTopBtn {
+            display: none;
+            position: fixed;
+            border-radius: 4px;
+            bottom: 20px;
+            right: 80px;
+            background-color: #55c7f7;
+            font-size: 4em;
+        }
+
+        #goTopBtn:hover {
+            background-color: #555;
+        }
+
+        /* game2 style */
+        .PrimeNumber{
+            height: 750px;
+            /* height: 100%; */
+            width: 90%;
+            background-color: deeppink;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5em;
+            padding: 20px;
+            border: 10px solid red;
+        }
+
+        #check{
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+            background-color:  rgb(255, 255, 255);
+        }
+
+        #textForm{
+            width: 300px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        /*game3style*/
+        .effect{
+            animation:blink 1s infinite;
+        }
+
+        button{
+            background-color:yellow;
+            font-size: 32px;
+        }
+
+        button:hover{
+            background-color:orange;
+        }
+
+        input[type="text"] {
+            font-size:30px;
+        }
+        #game3div{
+            width: 90%;
+            height: 90%;
+            margin: 0 auto;
+            border: 5px solid white;
+            margin-bottom: 30px;
+            background-color: rgb(244, 120, 120);
+        }
+
+
+        .pic img{transform:scale(1,1);transition: all 1s ease-out;}
+        .pic img:hover{transform:scale(4,4);}
+
+        /*game4style*/
+        button{
+            margin: 20px;
+            font-size: 2em;
+            background-color:  rgb(228, 228, 175);
+            padding: 0.2em
+        }
+
+        #game4div{
+            /* height: 650px; */
+            width: 90%;
+            background-color: rgb(255, 255, 159);
+            margin: 0 auto;
+            text-align: center;
+            color: rgb(255, 0, 0);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.5em;
+            padding: 20px;
+            border: 10px solid rgb(255, 255, 0);
+        }
+        
+    </style>
 </head>
-<body>
-        <label for="name">Tell me your name!:</label>
-        <input type="text" id="name" name="name"　value=""><br>
-        <button onclick="greeting()">Click me</button>
-        <h1 id="outputName"></h1>
+<body id = "mainbody">
+    <button onclick="topFunction()" id="goTopBtn" title="Go to top">Top</button>
+    <div id="top">
+        <header>
+            <!-- <h1>Make friend with numbers!</h1> -->
+            <h1>Let’s play with numbers!</h1>
+        </header>
+            <container id="game1">
+                <div class="input">
+                    <label for="name">Tell me your name:</label>
+                    <input type="text" id="name" name="name"　value="">
+                    <button id="clckMe" onclick="greeting()">Confirm</button>
+                    <!-- <button onclick="greeting()">Click me</button> -->
+                </div>
+                <div id="output">
+                    <h1 id="outputName"></h1>
+                </div>
+
+            </container>
+
+            <container id="toOtherGames">
+                <ul>
+                    <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;"> prime number</li></a>
+                    <a id="game3" href="#"><li class="game3" onclick="showGame(); return false;" >Calculator</li></a>
+                    <a id="game4" href="#"><li class="game4" onclick="showGame(); return false;" >Lottery</li></a>
+                </ul>
+
+            </container>
+        </div>
+
+        <div id="game2div">
+            <div class="PrimeNumber">
+                <h1 id="typeNumber">Please put number from 1 to 100</h1>
+                <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
+                <button id="check" onclick="check()">Check</button>
+                <h1 id="primeOutput"></h1>
+            </div>
+        </div>
+
+        
+        <div id="game3div">
+            <table align="center" style="padding:3%">
+                <tr>
+                    <td colspan="3" align="center">
+                        <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!</font><br>
+                        <font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">
+                        <font face="Trebuchet MS" size="100" id="n1" color="0058FC"></font>
+                    </td>
+                    <td align="center" width="200">
+                        <font face="Trebuchet MS" size="100" id="n2" color="9EEE08"></font>
+                    </td>
+                    <td align="left" width="200">
+                        <font face="Trebuchet MS" size="100" id="n3" color="4EACE6"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3">
+                        <input id="input" type="text" id="ans" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3" height="80">
+                        <button class="button_cont" onclick="calculation()">Click Me</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td align ="center" colspan="3">
+                        <font face="Trebuchet MS" size="8" color="white" id="demo"></font>
+                    </td>
+                </tr>
+            </table>
+            <table align="center">
+                <tr>
+                    <td>
+                        <div class="pic">
+                            <img style="padding:20px" src="image/1.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/2.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/3.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/4.png" width="90" height="90"/>
+                            <img style="padding:20px" src="image/5.png" width="160" height="90"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    
+
+        <div id="game4div">
+                <h1>Please choose three numbers</h1>
+                <div id = "numberBox"></div>
+                <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
+                <br><br>
+                <h1 id="result">Good luck!</h1>
+        </div>
 
     <script>
-    // ==============================================================================================================
-    // Game 1: Hello John, let’s start!  
-    // ==============================================================================================================
-    function greeting(){
-    var name = document.getElementById( "name" ).value;
-    document.getElementById("outputName").innerHTML +="Hi " + name + "!" + "<br>" + "Nice work. Let’s start😁" + "<br>";
-    }
+        // ==============================================================================================================
+        // Game 1: Hello John, let’s start! - Ayaka
+        // You should create a page that gets the user’s name and as a result of clicking a button it would come up
+        // with a new page that prints
+        // Hello &lt;the name that user input&gt;, Nice work! Let’s start!
+        // ==============================================================================================================
+        
+        function unfunction(){
+            document.querySelector("#name").addEventListener("invalid", function(event) {
+            event.preventDefault();
+        }, false);
+
+        }
+        function greeting(){
+            var name = document.getElementById( "name" ).value;
+            var outputStyle = document.getElementById('output');
+            if(name == ""){
+            document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+
+            }else{
+            document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
+            outputStyle.style.backgroundImage = 'url("image/cloud.png")';
+            outputStyle.style.backgroundRepeat = 'no-repeat';
+            outputStyle.style.backgroundSize = '100%';
+            document.getElementById("toOtherGames").style.display = "block";
+            }
+        }
+        //Get the button
+        var mybutton = document.getElementById("goTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        var nIntervId;
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+
+            //here will scroll to top then hide game;
+            nIntervId = window.setInterval(hideAllGame, 500);
+        }
+
+        function hideAllGame(){
+            var elmnt2 = document.getElementById("game2div");
+            var elmnt3 = document.getElementById("game3div");
+            var elmnt4 = document.getElementById("game4div");
+            elmnt2.style.display = "none";
+            elmnt3.style.display = "none";
+            elmnt4.style.display = "none";
+            clearInterval(nIntervId);
+        }
+
+        function showGame(){
+            var gameClassName = document.activeElement.id;
+
+            hideAllGame();
+
+            switch(gameClassName){
+                case "game2":
+                    document.getElementById("game2div").style.display = "block";
+                    break;
+                case "game3":
+                    // document.getElementById("game3div").style.display = "block";
+                    break;
+                case "game4":                    
+                    document.getElementById("game4div").style.display = "block";
+                    break;
+            }
+
+            window.scrollTo(0,document.body.scrollHeight);
+            console.log(gameClassName);
+        }
+
+        //===================================================================================================
+        // Game 2: Prime Number - Yuki
+        // In this game the user inputs an integer and shows it's a prime number or not.
+        // ==================================================================================================
+        
+        function check() {
+            // connect button element to JS
+            // var button = document.getElementById("check");
+            var flag =0;
+            // get textForm element to use next condition
+            var textForm = document.getElementById("textForm").value;
+
+            // condition to judge a Prime number or not
+            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
+                document.getElementById("primeOutput").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                return false;
+            }else{
+                for( i = 2 ; i < textForm ; i++){
+                    if(textForm % i == 0){
+                        flag = 1;
+                        break;
+                    }
+                }
+            }
+
+            // show the result
+            if(flag == 0){
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉'); 
+            }else if(textForm == 1){
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉');
+            }else{
+                document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌😌😌');
+            }
+        }
+        // ====================================================================================================
+        // Game 3: Calculate - Peri
+        // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
+        // correct” or “You are wrong, work har1der”. 
+        // =====================================================================================================
+
+        // =======================
+        // function start - start
+        // =======================
+        function start(){
+            var text=document.getelementById("text");
+            text.classList.add("effect");
+        }
+        // =======================
+        //function start - end
+        // =======================
+
+
+        var n1 = getRndInteger(1, 20);
+        document.getElementById("n1").innerHTML = n1;
+
+        var formula = ["+", "-", "*", "/"];
+        var n2 = formula[getRndInteger(0,4)];
+        document.getElementById("n2").innerHTML = n2;
+
+        var n3 = getRndInteger(1, 20);
+        document.getElementById("n3").innerHTML = n3;
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function calculation() {
+            var sum = 0;
+            var ans = document.getElementById("input").value;
+            if("+" == n2) {
+                sum = n1 + n3;
+            } else if("-" == n2) {
+                sum = n1 - n3;
+            } else if("*" == n2) {
+                sum = n1 * n3;
+            } else if("/" == n2) {
+                sum = Math.round(n1 / n3);
+            }
+            
+            var result = "OOPS, PLEASE TRY AGAIN!";
+            if(ans == sum){
+                result = "BINGO! YOU ARE SO SMART!";
+            }
+            
+            document.getElementById("demo").innerHTML = result;
+        }
+
+        //===================================================================================================
+        // Game 4: PLottery - Aaron
+        // Create a lottery program using three digits. Later it shows as below;
+        // ● all the numbers are correct(even the order): $10,000 prize
+        // ● all the numbers are correct, but not order: $3,000 prize
+        // ● two numbers are correct out of three numbers:$1,000 prize
+        // ● all others: No prize
+        // ==================================================================================================
+
+        var randomNumbersArray = [];
+        var chosenNumberArray = [];
+
+        function numberBoxClick(){
+            /*if already chosen just go back*/
+            if(chosenNumberArray.length >= 3){
+                return;
+            }
+
+            /*Get button*/
+            var c = document.activeElement;
+            c.disabled = true;
+
+            /*Save user choose numbers*/
+            chosenNumberArray.push(parseInt(c.innerHTML));
+
+            if(chosenNumberArray.length == 3){
+                /*enable try again button*/
+                document.getElementById("playAgain").disabled = false;
+
+                createRandomThreeNumbers();
+
+                /*For later check*/
+                var correctCount = 0;
+                // var correctButOrderCount = 0;
+
+                /*default set you are lost*/
+                document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers are "+randomNumbersArray;
+
+                /*use json to compare can check all the numbers are correct(even the order)*/
+                if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
+                    document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers are " + randomNumbersArray;
+                    return;
+                }
+                
+                /*check here*/
+                for(var i =0; i<3; i++){
+
+                    if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
+
+                        correctCount++;
+
+                        if(correctCount == 3){
+                            document.getElementById("result").innerHTML = "Congratulations! you won $3,000 prize. The Lottery numbers are " + randomNumbersArray;
+                        }
+
+                        if(correctCount == 2){
+                            document.getElementById("result").innerHTML = "Congratulations! you won $1,000 prize. The Lottery numbers are " + randomNumbersArray;
+                        }
+
+                        // if(randomNumbersArray[i] == chosenNumberArray[i]){
+                            // correctCount++;
+                        // }
+                        // else{
+                        //     correctButOrderCount++;
+                        // }
+                    }
+                    else{
+                        continue;
+                    }
+                }
+
+            }
+        }
+
+        function createButton(){
+            var numberBox = document.getElementById("numberBox");
+            for(var i = 1; i <= 5; i++){
+                var numberButton = document.createElement("BUTTON");
+                numberButton.innerHTML = i;
+                numberButton.onclick = numberBoxClick;
+                numberBox.appendChild(numberButton);
+            }
+        }
+
+        function createRandomThreeNumbers(){
+
+            var rn = 0;
+            randomNumbersArray = [];
+            
+            for(var i = 0 ; i<3 ;i++){
+                do {
+                    rn = parseInt(Math.random()*5+1);
+                    /*check numbers are distinct*/
+                }while(randomNumbersArray.some((arrNum) => rn === arrNum))
+                randomNumbersArray.push(rn);
+            }
+            console.log(randomNumbersArray);
+        }
+
+        function reset(){
+
+            // createRandomThreeNumbers();
+            chosenNumberArray = [];
+            var c = document.activeElement;
+            c.disabled = true;
+            var buttons = document.getElementById("numberBox").getElementsByTagName('*');
+            /*enable all button*/
+            for(var i = 0; i < buttons.length; i++){
+                buttons[i].disabled = false;
+            }
+            
+            document.getElementById("result").innerHTML = "Good luck!"
+        }
+
+        // createRandomThreeNumbers();
+        createButton();
 
     </script>
 </body>
