@@ -198,7 +198,7 @@
         /*game4style*/
         button{
             margin: 20px;
-            font-size: 2em;
+            font-size: 1em;
             background-color:  rgb(228, 228, 175);
             padding: 0.2em
         }
@@ -208,10 +208,11 @@
             width: 90%;
             background-color: rgb(255, 255, 159);
             margin: 0 auto;
+            margin-bottom: 30px;
             text-align: center;
-            color: rgb(255, 0, 0);
+            color: rgb(255, 86, 86);
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5em;
+            font-size: -webkit-xxx-large;
             padding: 20px;
             border: 10px solid rgb(255, 255, 0);
         }
@@ -310,11 +311,11 @@
     
 
         <div id="game4div">
-                <h1>Please choose three numbers</h1>
+                <div>PLEASE CHOOSE THREE NUMBERS</div>
                 <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
+                <button disabled="true" id="playAgain" onclick="reset()">TRY AGAIN</button>
                 <br><br>
-                <h1 id="result">Good luck!</h1>
+                <div id="result">GOOD LUCK!</div>
         </div>
 
     <script>
@@ -341,7 +342,7 @@
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
@@ -379,7 +380,7 @@
                     document.getElementById("game2div").style.display = "block";
                     break;
                 case "game3":
-                    // document.getElementById("game3div").style.display = "block";
+                    document.getElementById("game3div").style.display = "block";
                     break;
                 case "game4":                    
                     document.getElementById("game4div").style.display = "block";
@@ -424,6 +425,7 @@
                 document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌😌😌');
             }
         }
+
         // ====================================================================================================
         // Game 3: Calculate - Peri
         // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
