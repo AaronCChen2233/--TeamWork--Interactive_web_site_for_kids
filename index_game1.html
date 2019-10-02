@@ -73,7 +73,7 @@
 
         li {
             list-style: none;
-            display: inline;
+            display: inline-block;
             border: 3px solid black;
             padding: 30px 60px;
         }
@@ -116,6 +116,7 @@
 
         #toOtherGames{
             text-align: center;
+            display: none;
         }
 
         #game2div,#game3div,#game4div{
@@ -224,7 +225,7 @@
     <div id="top">
         <header>
             <!-- <h1>Make friend with numbers!</h1> -->
-            <h1>Let’s play with numbers!</h1>
+            <h1>Make friend with numbers!</h1>
         </header>
             <container id="game1">
                 <div class="input">
@@ -313,7 +314,7 @@
         <div id="game4div">
                 <div>PLEASE CHOOSE THREE NUMBERS</div>
                 <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="reset()">TRY AGAIN</button>
+                <button disabled="true" id="playAgain" onclick="resetLottery()">TRY AGAIN</button>
                 <br><br>
                 <div id="result">GOOD LUCK!</div>
         </div>
@@ -337,12 +338,15 @@
             var outputStyle = document.getElementById('output');
             if(name == ""){
             document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+            document.getElementById("toOtherGames").style.display = "none";
+            outputStyle.style.backgroundImage = 'none';
 
             }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
             outputStyle.style.backgroundImage = 'url("image/cloud.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '100%';
+            document.getElementById("toOtherGames").style.display = "block";
             }
         }
         //Get the button
@@ -372,7 +376,11 @@
 
             //here will scroll to top then hide game;
             nIntervId = window.setInterval(hideAllGame, 500);
+<<<<<<< HEAD
 >>>>>>> 12e4dc06e5393402da4b0e9b96e63688d1c74803
+=======
+            resetLottery();
+>>>>>>> ayaka
         }
 
         function hideAllGame(){
@@ -500,7 +508,7 @@
         }
 
         //===================================================================================================
-        // Game 4: PLottery - Aaron
+        // Game 4: Lottery - Aaron
         // Create a lottery program using three digits. Later it shows as below;
         // ● all the numbers are correct(even the order): $10,000 prize
         // ● all the numbers are correct, but not order: $3,000 prize
@@ -598,11 +606,11 @@
             console.log(randomNumbersArray);
         }
 
-        function reset(){
+        function resetLottery(){
 
             // createRandomThreeNumbers();
             chosenNumberArray = [];
-            var c = document.activeElement;
+            var c = document.getElementById("playAgain");
             c.disabled = true;
             var buttons = document.getElementById("numberBox").getElementsByTagName('*');
             /*enable all button*/
