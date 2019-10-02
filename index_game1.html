@@ -79,21 +79,21 @@
         }
 
         .game2{
-            margin: 1em;
+            margin: 0.5em;
             border: 3px solid red;
             background-color: deeppink;
             font-size: 3em;
         }
 
         .game3{
-            margin: 1em;
+            margin: 0.5em;
             border: 3px solid #EDB4B4;
             background-color: #FB8080;
             font-size: 3em;
         }
 
         .game4{
-            margin: 1em;
+            margin: 0.5em;
             border: 3px solid rgb(255, 255, 0);
             background-color: rgb(255, 255, 159);
             font-size: 3em;
@@ -369,18 +369,13 @@
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
-<<<<<<< HEAD
+
             hideAllGame();
             resetCalculation();
-=======
-
+            resetLottery();
             //here will scroll to top then hide game;
             nIntervId = window.setInterval(hideAllGame, 500);
-<<<<<<< HEAD
->>>>>>> 12e4dc06e5393402da4b0e9b96e63688d1c74803
-=======
-            resetLottery();
->>>>>>> ayaka
+
         }
 
         function hideAllGame(){
