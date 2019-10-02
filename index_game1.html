@@ -139,7 +139,7 @@
 
         /* game2 style */
         .PrimeNumber{
-            height: 750px;
+            height: 700px;
             /* height: 100%; */
             width: 90%;
             background-color: deeppink;
@@ -147,9 +147,10 @@
             text-align: center;
             color: white;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5em;
+            font-size: 2.2em;
             padding: 20px;
             border: 10px solid red;
+            margin-bottom: 20px;
         }
 
         #check{
@@ -250,9 +251,9 @@
 
         <div id="game2div">
             <div class="PrimeNumber">
-                <h1 id="typeNumber">Please put number from 1 to 100</h1>
+                <h1 id="typeNumber">PLEASE PUT A NUMBER 1 TO 100</h1>
                 <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
-                <button id="check" onclick="check()">Check</button>
+                <button id="check" onclick="check()">LET'S CHECK IT!</button>
                 <h1 id="primeOutput"></h1>
             </div>
         </div>
@@ -379,7 +380,7 @@
                     document.getElementById("game2div").style.display = "block";
                     break;
                 case "game3":
-                    // document.getElementById("game3div").style.display = "block";
+                    document.getElementById("game3div").style.display = "block";
                     break;
                 case "game4":                    
                     document.getElementById("game4div").style.display = "block";
@@ -404,7 +405,7 @@
 
             // condition to judge a Prime number or not
             if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
-                document.getElementById("primeOutput").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                document.getElementById("primeOutput").innerHTML = ('ERROR. PLEASE TYPE A NUMBER 1 TO 100.😵');
                 return false;
             }else{
                 for( i = 2 ; i < textForm ; i++){
@@ -417,11 +418,11 @@
 
             // show the result
             if(flag == 0){
-                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉'); 
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　IS A PRIME NUMBER😍　💫🎉💫🎉'); 
             }else if(textForm == 1){
-                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉');
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　IS A PRIME NUMBER😍　💫🎉💫🎉');
             }else{
-                document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌😌😌');
+                document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
         }
         // ====================================================================================================
