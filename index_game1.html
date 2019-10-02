@@ -146,7 +146,7 @@
             text-align: center;
             color: white;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.2em;
+            font-size: -webkit-xxx-large;
             padding: 20px;
             border: 10px solid red;
             margin-bottom: 20px;
@@ -157,12 +157,19 @@
             height: 50px;
             font-size: 25px;
             background-color:  rgb(255, 255, 255);
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
 
         #textForm{
             width: 300px;
             height: 50px;
             font-size: 25px;
+        }
+        #subtitle{
+            margin-top: 90px;
+            font-size: 1.5em;
+            color: yellow;
         }
 
         /*game3style*/
@@ -251,10 +258,24 @@
 
         <div id="game2div">
             <div class="PrimeNumber">
-                <h1 id="typeNumber">PLEASE PUT A NUMBER 1 TO 100</h1>
+                <div id="subtitle">LET'S GUESS A PRIME NUMBER!</div>
+                <div id="typeNumber">PLEASE PUT A NUMBER 1 TO 100</div>
                 <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
                 <button id="check" onclick="check()">LET'S CHECK IT!</button>
-                <h1 id="primeOutput"></h1>
+                <div id="primeOutput"></div>
+                <table align="center">
+                        <tr>
+                            <td>
+                                <div class="pic">
+                                    <img style="padding:20px" src="image/1.png" width="90" height="90"/>
+                                    <img style="padding:20px" src="image/2.png" width="90" height="90"/>
+                                    <img style="padding:20px" src="image/3.png" width="90" height="90"/>
+                                    <img style="padding:20px" src="image/4.png" width="90" height="90"/>
+                                    <img style="padding:20px" src="image/5.png" width="160" height="90"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
             </div>
         </div>
 
@@ -368,6 +389,7 @@
 
             //here will scroll to top then hide game;
             nIntervId = window.setInterval(hideAllGame, 500);
+            resetPrimeNumber();
         }
 
         function hideAllGame(){
@@ -435,7 +457,10 @@
                 document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
         }
-
+        function resetPrimeNumber(){
+            document.getElementById("textForm").value="";
+            document.getElementById("primeOutput").innerHTML ="";
+        }
         // ====================================================================================================
         // Game 3: Calculate - Peri
         // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
