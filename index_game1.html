@@ -16,21 +16,20 @@
 
         #mainbody {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin: 0;
+            width: 90%;
+            margin: 0 auto;
             height: 100%;
         }
+        
 
         #top {
-            /* height: 100%; */
-            /* width: 100%; */
             padding: 40px;
             
         }
 
         .input{
             height: 100px;
-            width: 90%;
-            margin: 0 auto;
+            text-align: center;
             font-size: 2em;
         }
 
@@ -325,15 +324,25 @@
         // Hello &lt;the name that user input&gt;, Nice work! Let’s start!
         // ==============================================================================================================
         
+        function unfunction(){
+            document.querySelector("#name").addEventListener("invalid", function(event) {
+            event.preventDefault();
+        }, false);
+
+        }
         function greeting(){
             var name = document.getElementById( "name" ).value;
             var outputStyle = document.getElementById('output');
+            if(name == ""){
+            document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+
+            }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
             outputStyle.style.backgroundImage = 'url("image/cloud.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '100%';
+            }
         }
-
         //Get the button
         var mybutton = document.getElementById("goTopBtn");
 
