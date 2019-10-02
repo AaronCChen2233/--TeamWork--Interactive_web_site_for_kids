@@ -352,6 +352,7 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
             hideAllGame();
+            resetCalculation();
         }
 
         function hideAllGame(){
@@ -469,6 +470,11 @@
             }
             
             document.getElementById("demo").innerHTML = result;
+        }
+
+        function resetCalculation(){
+            document.getElementById("input").value = "";
+            document.getElementById("demo").innerHTML ="";
         }
 
         //===================================================================================================
