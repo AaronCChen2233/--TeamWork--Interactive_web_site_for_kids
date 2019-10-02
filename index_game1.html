@@ -314,7 +314,7 @@
         <div id="game4div">
                 <div>PLEASE CHOOSE THREE NUMBERS</div>
                 <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="reset()">TRY AGAIN</button>
+                <button disabled="true" id="playAgain" onclick="resetLottery()">TRY AGAIN</button>
                 <br><br>
                 <div id="result">GOOD LUCK!</div>
         </div>
@@ -372,6 +372,7 @@
 
             //here will scroll to top then hide game;
             nIntervId = window.setInterval(hideAllGame, 500);
+            resetLottery();
         }
 
         function hideAllGame(){
@@ -494,7 +495,7 @@
         }
 
         //===================================================================================================
-        // Game 4: PLottery - Aaron
+        // Game 4: Lottery - Aaron
         // Create a lottery program using three digits. Later it shows as below;
         // ● all the numbers are correct(even the order): $10,000 prize
         // ● all the numbers are correct, but not order: $3,000 prize
@@ -592,11 +593,11 @@
             console.log(randomNumbersArray);
         }
 
-        function reset(){
+        function resetLottery(){
 
             // createRandomThreeNumbers();
             chosenNumberArray = [];
-            var c = document.activeElement;
+            var c = document.getElementById("playAgain");
             c.disabled = true;
             var buttons = document.getElementById("numberBox").getElementsByTagName('*');
             /*enable all button*/
