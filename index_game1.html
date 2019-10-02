@@ -16,21 +16,20 @@
 
         #mainbody {
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin: 0;
+            width: 90%;
+            margin: 0 auto;
             height: 100%;
         }
+        
 
         #top {
-            /* height: 100%; */
-            /* width: 100%; */
             padding: 40px;
             
         }
 
         .input{
             height: 100px;
-            width: 90%;
-            margin: 0 auto;
+            text-align: center;
             font-size: 2em;
         }
 
@@ -130,6 +129,7 @@
             bottom: 20px;
             right: 80px;
             background-color: #55c7f7;
+            font-size: 4em;
         }
 
         #goTopBtn:hover {
@@ -138,7 +138,7 @@
 
         /* game2 style */
         .PrimeNumber{
-            height: 750px;
+            height: 700px;
             /* height: 100%; */
             width: 90%;
             background-color: deeppink;
@@ -146,9 +146,10 @@
             text-align: center;
             color: white;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5em;
+            font-size: 2.2em;
             padding: 20px;
             border: 10px solid red;
+            margin-bottom: 20px;
         }
 
         #check{
@@ -197,7 +198,7 @@
         /*game4style*/
         button{
             margin: 20px;
-            font-size: 2em;
+            font-size: 1em;
             background-color:  rgb(228, 228, 175);
             padding: 0.2em
         }
@@ -207,10 +208,11 @@
             width: 90%;
             background-color: rgb(255, 255, 159);
             margin: 0 auto;
+            margin-bottom: 30px;
             text-align: center;
-            color: rgb(255, 0, 0);
+            color: rgb(255, 86, 86);
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5em;
+            font-size: -webkit-xxx-large;
             padding: 20px;
             border: 10px solid rgb(255, 255, 0);
         }
@@ -236,10 +238,10 @@
                 </div>
 
             </container>
-            <container id="toOtherGames">
 
+            <container id="toOtherGames">
                 <ul>
-                    <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;">Guess prime number</li></a>
+                    <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;"> prime number</li></a>
                     <a id="game3" href="#"><li class="game3" onclick="showGame(); return false;" >Calculator</li></a>
                     <a id="game4" href="#"><li class="game4" onclick="showGame(); return false;" >Lottery</li></a>
                 </ul>
@@ -249,9 +251,9 @@
 
         <div id="game2div">
             <div class="PrimeNumber">
-                <h1 id="typeNumber">Please put number from 1 to 100</h1>
+                <h1 id="typeNumber">PLEASE PUT A NUMBER 1 TO 100</h1>
                 <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
-                <button id="check" onclick="check()">Check</button>
+                <button id="check" onclick="check()">LET'S CHECK IT!</button>
                 <h1 id="primeOutput"></h1>
             </div>
         </div>
@@ -261,8 +263,8 @@
             <table align="center" style="padding:3%">
                 <tr>
                     <td colspan="3" align="center">
-                        <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATE!!</font><br>
-                        <font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBER & MATHEMATICAL EQUATIONS,</br>PLESE ANWER IT!</font>
+                        <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATION!!</font><br>
+                        <font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBERS & MATHEMATICAL EQUATIONS,</br>PLEASE ANSWER IT!</font>
                     </td>
                 </tr>
                 <tr>
@@ -309,14 +311,14 @@
     
 
         <div id="game4div">
-                <h1>Please choose three numbers</h1>
+                <div>PLEASE CHOOSE THREE NUMBERS</div>
                 <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="reset()">TryAgain</button>
+                <button disabled="true" id="playAgain" onclick="reset()">TRY AGAIN</button>
                 <br><br>
-                <div id="result">Good luck!</div>
+                <div id="result">GOOD LUCK!</div>
         </div>
-    <script>
 
+    <script>
         // ==============================================================================================================
         // Game 1: Hello John, let’s start! - Ayaka
         // You should create a page that gets the user’s name and as a result of clicking a button it would come up
@@ -324,15 +326,25 @@
         // Hello &lt;the name that user input&gt;, Nice work! Let’s start!
         // ==============================================================================================================
         
+        function unfunction(){
+            document.querySelector("#name").addEventListener("invalid", function(event) {
+            event.preventDefault();
+        }, false);
+
+        }
         function greeting(){
             var name = document.getElementById( "name" ).value;
             var outputStyle = document.getElementById('output');
+            if(name == ""){
+            document.getElementById("outputName").innerHTML="Ooops. Please type your name again." + "<br>";
+
+            }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
             outputStyle.style.backgroundImage = 'url("image/cloud.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '100%';
+            }
         }
-
         //Get the button
         var mybutton = document.getElementById("goTopBtn");
 
@@ -340,19 +352,27 @@
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
-            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
             }
         }
 
+        var nIntervId;
+
         // When the user clicks on the button, scroll to the top of the document
         function topFunction() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
+<<<<<<< HEAD
             hideAllGame();
             resetCalculation();
+=======
+
+            //here will scroll to top then hide game;
+            nIntervId = window.setInterval(hideAllGame, 500);
+>>>>>>> 12e4dc06e5393402da4b0e9b96e63688d1c74803
         }
 
         function hideAllGame(){
@@ -362,6 +382,7 @@
             elmnt2.style.display = "none";
             elmnt3.style.display = "none";
             elmnt4.style.display = "none";
+            clearInterval(nIntervId);
         }
 
         function showGame(){
@@ -399,7 +420,7 @@
 
             // condition to judge a Prime number or not
             if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
-                document.getElementById("primeOutput").innerHTML = ('Error. Please type a number from 1 to 100.😵');
+                document.getElementById("primeOutput").innerHTML = ('ERROR. PLEASE TYPE A NUMBER 1 TO 100.😵');
                 return false;
             }else{
                 for( i = 2 ; i < textForm ; i++){
@@ -412,13 +433,14 @@
 
             // show the result
             if(flag == 0){
-                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉'); 
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　IS A PRIME NUMBER😍　💫🎉💫🎉'); 
             }else if(textForm == 1){
-                document.getElementById("primeOutput").innerHTML = (textForm + ' 　is a Prime Number😍　💫🎉💫🎉');
+                document.getElementById("primeOutput").innerHTML = (textForm + ' 　IS A PRIME NUMBER😍　💫🎉💫🎉');
             }else{
-                document.getElementById("primeOutput").innerHTML = (textForm + ' is not a Prime Number😌😌😌');
+                document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
         }
+
         // ====================================================================================================
         // Game 3: Calculate - Peri
         // Create a game to ask two numbers and answer as well. Later it shows correct answer with “You are
@@ -490,6 +512,11 @@
         var chosenNumberArray = [];
 
         function numberBoxClick(){
+            /*if already chosen just go back*/
+            if(chosenNumberArray.length >= 3){
+                return;
+            }
+
             /*Get button*/
             var c = document.activeElement;
             c.disabled = true;
