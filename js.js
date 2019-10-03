@@ -44,7 +44,7 @@
         }
 
         function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
