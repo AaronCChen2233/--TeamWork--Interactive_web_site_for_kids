@@ -82,6 +82,7 @@ li {
     border: 3px solid red;
     background-color: deeppink;
     font-size: 3em;
+    color: yellow;
 }
 
 .game3{
@@ -89,6 +90,7 @@ li {
     border: 3px solid white;
     background-color: #FB8080;
     font-size: 3em;
+    color: white;
 }
 
 .game4{
@@ -96,6 +98,7 @@ li {
     border: 3px solid rgb(255, 255, 0);
     background-color: rgb(255, 255, 159);
     font-size: 3em;
+    color:rgb(255, 86, 86);
 }
 
 .game2:hover{
