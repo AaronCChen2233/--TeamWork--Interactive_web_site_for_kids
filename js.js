@@ -1,340 +1,3 @@
-<!DOCTYPE html>
-<html id="mainhtml" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Make friend with numbers!</title>
-    <style>
-        /* main page style */
-        html {
-            height: 100%;
-            margin: 0;
-            background-color: #7cd8ff;
-            scroll-behavior: smooth;
-        }
-
-        #mainbody {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            width: 90%;
-            margin: 0 auto;
-            height: 100%;
-        }
-        
-
-        #top {
-            padding: 40px;
-            
-        }
-
-        .input{
-            height: 100px;
-            text-align: center;
-            font-size: 2em;
-        }
-
-        input {
-            font-size: 1em;
-        }
-        
-        #clckMe {
-            font-size: 0.5em;
-            background-color: #fff;
-            border-radius: 50%;
-            padding: 20px 16px;
-        }
-
-        #clckMe:hover{
-            background-color: rgb(252, 255, 49); 
-            color: black;
-        }
-
-        #output {
-            height: 230px;
-            /* width: 90%; */
-            padding-top: 70px;
-            vertical-align: middle;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-        }
-
-        #game1 {
-            width: 90%;
-            margin: 100px auto;
-        }
-
-        ul {
-            width: 90%;
-            margin: 60px auto;
-        }
-
-        li {
-            list-style: none;
-            display: inline-block;
-            border: 3px solid black;
-            padding: 30px 60px;
-        }
-
-        .game2{
-            margin: 0 0.5em;
-            border: 3px solid red;
-            background-color: deeppink;
-            font-size: 3em;
-        }
-
-        .game3{
-            margin: 0 0.5em;
-            border: 3px solid white;
-            background-color: #FB8080;
-            font-size: 3em;
-        }
-
-        .game4{
-            margin: 0 0.5em;
-            border: 3px solid rgb(255, 255, 0);
-            background-color: rgb(255, 255, 159);
-            font-size: 3em;
-        }
-
-        .game2:hover{
-            background-color: rgb(208, 219, 255); 
-            color: black;
-        }
-
-        .game3:hover{
-            background-color:rgb(208, 219, 255); 
-            color: black;
-        }
-
-        .game4:hover{
-            background-color:rgb(208, 219, 255); 
-            color: black;
-        }
-
-        #toOtherGames{
-            text-align: center;
-            display: none;
-        }
-
-        #game2div,#game3div,#game4div{
-            display: none;
-        }
-
-        #goTopBtn {
-            display: none;
-            position: fixed;
-            border-radius: 4px;
-            bottom: 40px;
-            right: 150px;
-            background-color: #7cd8ff;
-            font-size: 4em;
-        }
-
-        #goTopBtn:hover {
-            background-color: rgb(208, 219, 255); 
-        }
-
-        /* game2 style */
-        .PrimeNumber{
-            height: 700px;
-            /* height: 100%; */
-            width: 90%;
-            background-color: deeppink;
-            margin: 0 auto;
-            text-align: center;
-            color: white;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.2em;
-            padding: 20px;
-            border: 5px solid red;
-            margin-bottom: 20px;
-        }
-
-        #check{
-            width: 300px;
-            height: 50px;
-            font-size: 25px;
-            background-color:  rgb(255, 255, 255);
-        }
-
-        #textForm{
-            width: 300px;
-            height: 50px;
-            font-size: 25px;
-        }
-
-        /*game3style*/
-        .effect{
-            animation:blink 1s infinite;
-        }
-
-        #calculationBtn{
-            background-color:yellow;
-            font-size: 32px;
-        }
-
-        #calculationBtn:hover{
-            background-color:orange;
-        }
-
-        input[type="text"] {
-            font-size:30px;
-        }
-        #game3div{
-            width: 90%;
-            height: 90%;
-            margin: 0 auto;
-            border: 5px solid white;
-            margin-bottom: 30px;
-            background-color: rgb(244, 120, 120);
-            padding: 20px;
-        }
-
-
-        .pic img{transform:scale(1,1);transition: all 1s ease-out;}
-        .pic img:hover{transform:scale(4,4);}
-
-        /*game4style*/
-        #numberBox button{
-            margin: 20px;
-            font-size: 1em;
-            background-color:  rgb(228, 228, 175);
-            padding: 0.3em 0.5em;
-        }
-
-        #playAgain{
-            margin: 20px;
-            font-size: 1em;
-            background-color:  rgb(228, 228, 175);
-            padding: 0.2em
-        }
-
-        #game4div{
-            /* height: 650px; */
-            width: 90%;
-            background-color: rgb(255, 255, 159);
-            margin: 0 auto;
-            margin-bottom: 30px;
-            text-align: center;
-            color: rgb(255, 86, 86);
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: -webkit-xxx-large;
-            padding: 20px;
-            border: 5px solid rgb(255, 255, 0);
-        }
-        
-    </style>
-</head>
-<body id = "mainbody">
-    <button onclick="topFunction()" id="goTopBtn" title="Go to top">Top</button>
-    <div id="top">
-        <header>
-            <!-- <h1>Make friend with numbers!</h1> -->
-            <h1>Make friend with numbers!</h1>
-        </header>
-            <container id="game1">
-                <div class="input">
-                    <label for="name">Tell me your name:</label>
-                    <input type="text" id="name" name="name"　value="">
-                    <button id="clckMe" onclick="greeting()">Confirm</button>
-                    <!-- <button onclick="greeting()">Click me</button> -->
-                </div>
-                <div id="output">
-                    <h1 id="outputName"></h1>
-                </div>
-
-            </container>
-
-            <container id="toOtherGames">
-                <ul>
-                    <a id="game2" href="#"><li class="game2" onclick="showGame(); return false;"> prime number</li></a>
-                    <a id="game3" href="#"><li class="game3" onclick="showGame(); return false;" >Calculator</li></a>
-                    <a id="game4" href="#"><li class="game4" onclick="showGame(); return false;" >Lottery</li></a>
-                </ul>
-
-            </container>
-        </div>
-
-        <div id="game2div">
-            <div class="PrimeNumber">
-                <h1 id="typeNumber">PLEASE PUT A NUMBER 1 TO 100</h1>
-                <input type="number" id="textForm" maxlength="3" placeholder="1 to 100">
-                <button id="check" onclick="check()">LET'S CHECK IT!</button>
-                <h1 id="primeOutput"></h1>
-            </div>
-        </div>
-
-        
-        <div id="game3div">
-            <table align="center" style="padding:3%">
-                <tr>
-                    <td colspan="3" align="center">
-                        <font face="Trebuchet MS" size="100" color="FFFFFF">RANDOM CALCULATION!!</font><br>
-                        <font face="Trebuchet MS" size="100" color="FCF000">I WILL GIVE YOU RANDOM NUMBERS & MATHEMATICAL EQUATIONS,</br>PLEASE ANSWER IT!</font>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="right" width="200">
-                        <font face="Trebuchet MS" size="100" id="n1" color="0058FC"></font>
-                    </td>
-                    <td align="center" width="200">
-                        <font face="Trebuchet MS" size="100" id="n2" color="9EEE08"></font>
-                    </td>
-                    <td align="left" width="200">
-                        <font face="Trebuchet MS" size="100" id="n3" color="4EACE6"></font>
-                    </td>
-                </tr>
-                <tr>
-                    <td align ="center" colspan="3">
-                        <input id="input" type="text" id="ans" size="20">
-                    </td>
-                </tr>
-                <tr>
-                    <td align ="center" colspan="3" height="80">
-                        <button id="calculationBtn" class="button_cont" onclick="calculation()">Click Me</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td align ="center" colspan="3">
-                        <font face="Trebuchet MS" size="8" color="white" id="demo"></font>
-                    </td>
-                </tr>
-            </table>
-            <table align="center">
-                <tr>
-                    <td>
-                        <div class="pic">
-                            <img style="padding:20px" src="image/1.png" width="90" height="90"/>
-                            <img style="padding:20px" src="image/2.png" width="90" height="90"/>
-                            <img style="padding:20px" src="image/3.png" width="90" height="90"/>
-                            <img style="padding:20px" src="image/4.png" width="90" height="90"/>
-                            <img style="padding:20px" src="image/5.png" width="160" height="90"/>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    
-
-        <div id="game4div">
-                <div>PLEASE CHOOSE THREE NUMBERS</div>
-                <div id = "numberBox"></div>
-                <button disabled="true" id="playAgain" onclick="resetLottery()">TRY AGAIN</button>
-                <br><br>
-                <div id="result">GOOD LUCK!</div>
-                <div class="pic">
-                    <img style="padding:20px" src="image/violin.png" width="90" height="90"/>
-                    <img style="padding:20px" src="image/tuba.png" width="90" height="90"/>
-                    <img style="padding:20px" src="image/harp.png" width="90" height="90"/>
-                    <img style="padding:20px" src="image/drum.png" width="90" height="90"/>
-                    <img style="padding:20px" src="image/ukelele.png" width="90" height="90"/>
-                </div>
-        </div>
-
-    <script>
         // ==============================================================================================================
         // Game 1: Hello John, let’s start! - Ayaka
         // You should create a page that gets the user’s name and as a result of clicking a button it would come up
@@ -348,6 +11,7 @@
         }, false);
 
         }
+
         function greeting(){
             var name = document.getElementById( "name" ).value;
             var outputStyle = document.getElementById('output');
@@ -376,11 +40,6 @@
             document.getElementById("toOtherGames").style.display = "block";
             }
         }
-        //Get the button
-        var mybutton = document.getElementById("goTopBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -425,6 +84,7 @@
                     break;
                 case "game3":
                     document.getElementById("game3div").style.display = "block";
+                    createCalculationQuection();
                     break;
                 case "game4":                    
                     document.getElementById("game4div").style.display = "block";
@@ -487,16 +147,19 @@
         //function start - end
         // =======================
 
+        var n1, n2, n3;
+        function createCalculationQuection(){
 
-        var n1 = getRndInteger(1, 20);
-        document.getElementById("n1").innerHTML = n1;
-
-        var formula = ["+", "-", "*", "/"];
-        var n2 = formula[getRndInteger(0,4)];
-        document.getElementById("n2").innerHTML = n2;
-
-        var n3 = getRndInteger(1, 20);
-        document.getElementById("n3").innerHTML = n3;
+            n1 = getRndInteger(1, 20);
+            document.getElementById("n1").innerHTML = n1;
+    
+            var formula = ["+", "-", "*", "/"];
+            n2 = formula[getRndInteger(0,4)];
+            document.getElementById("n2").innerHTML = n2;
+    
+            n3 = getRndInteger(1, 20);
+            document.getElementById("n3").innerHTML = n3;
+        }
 
         function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
@@ -641,10 +304,3 @@
             
             document.getElementById("result").innerHTML = "Good luck!"
         }
-
-        // createRandomThreeNumbers();
-        createButton();
-
-    </script>
-</body>
-</html>
