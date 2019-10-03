@@ -24,18 +24,20 @@
             outputStyle.style.backgroundImage = 'url("image/ghost.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '10%';
+            outputStyle.style.backgroundPosition = 'left';
+            topFunction();
             
             }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
             
-            outputStyle.style.backgroundImage = 'url("image/cloud.png")';
-            outputStyle.style.backgroundRepeat = 'no-repeat';
-            outputStyle.style.backgroundSize = '100%';
-
-            // outputStyle.style.backgroundImage = 'url("image/cloud_without_back.png")';
+            // outputStyle.style.backgroundImage = 'url("image/cloud.png")';
             // outputStyle.style.backgroundRepeat = 'no-repeat';
-            // outputStyle.style.backgroundSize = '50%';
-            // outputStyle.style.backgroundPosition = 'center';
+            // outputStyle.style.backgroundSize = '100%';
+
+            outputStyle.style.backgroundImage = 'url("image/cloud_without_back.png")';
+            outputStyle.style.backgroundRepeat = 'no-repeat';
+            outputStyle.style.backgroundSize = '50%';
+            outputStyle.style.backgroundPosition = 'center';
 
             document.getElementById("toOtherGames").style.display = "block";
             }
@@ -100,7 +102,11 @@
         // Game 2: Prime Number - Yuki
         // In this game the user inputs an integer and shows it's a prime number or not.
         // ==================================================================================================
-        
+        function resetPrimeNumber(){
+            document.getElementById("textForm").value="";
+            document.getElementById("primeOutput").innerHTML ="";
+        }
+
         function check() {
             // connect button element to JS
             // var button = document.getElementById("check");
