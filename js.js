@@ -32,7 +32,7 @@
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '100%';
 
-            // outputStyle.style.backgroundImage = 'url("image/rainbow.png")';
+            // outputStyle.style.backgroundImage = 'url("image/cloud_without_back.png")';
             // outputStyle.style.backgroundRepeat = 'no-repeat';
             // outputStyle.style.backgroundSize = '50%';
             // outputStyle.style.backgroundPosition = 'center';
