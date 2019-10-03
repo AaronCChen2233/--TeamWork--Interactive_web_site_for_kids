@@ -71,21 +71,21 @@ li {
 }
 
 .game2{
-    margin: 0 0.5em;
+    margin: 0 0.2em;
     border: 3px solid red;
     background-color: deeppink;
     font-size: 3em;
 }
 
 .game3{
-    margin: 0 0.5em;
+    margin: 0 0.2em;
     border: 3px solid white;
     background-color: #FB8080;
     font-size: 3em;
 }
 
 .game4{
-    margin: 0 0.5em;
+    margin: 0 0.2em;
     border: 3px solid rgb(255, 255, 0);
     background-color: rgb(255, 255, 159);
     font-size: 3em;
