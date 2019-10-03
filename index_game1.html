@@ -476,18 +476,6 @@
         // correct” or “You are wrong, work har1der”. 
         // =====================================================================================================
 
-        // =======================
-        // function start - start
-        // =======================
-        function start(){
-            var text=document.getelementById("text");
-            text.classList.add("effect");
-        }
-        // =======================
-        //function start - end
-        // =======================
-
-
         var n1 = getRndInteger(1, 20);
         document.getElementById("n1").innerHTML = n1;
 
@@ -503,25 +491,30 @@
         }
 
         function calculation() {
-            var sum = 0;
-            var ans = document.getElementById("input").value;
-            if("+" == n2) {
-                sum = n1 + n3;
-            } else if("-" == n2) {
-                sum = n1 - n3;
-            } else if("*" == n2) {
-                sum = n1 * n3;
-            } else if("/" == n2) {
-                sum = Math.round(n1 / n3);
-            }
-            
-            var result = "OOPS, PLEASE TRY AGAIN!";
-            if(ans == sum){
-                result = "BINGO! YOU ARE SO SMART!";
-            }
-            
-            document.getElementById("demo").innerHTML = result;
+        var ans = document.getElementById("input").value;
+        if("" == ans){
+            document.getElementById("demo").innerHTML = "PLEASE ANSWER IT.";
+            return 
         }
+
+        var sum = 0;
+        if("+" == n2) {
+            sum = n1 + n3;
+        } else if("-" == n2) {
+            sum = n1 - n3;
+        } else if("*" == n2) {
+            sum = n1 * n3;
+        } else if("/" == n2) {
+            sum = Math.round(n1 / n3);
+        }
+        
+        var result = "OOPS, PLEASE TRY AGAIN!";
+        if(ans == sum){
+            result = "BINGO! YOU ARE SO SMART!";
+        }
+    
+    document.getElementById("demo").innerHTML = result;
+}
 
         function resetCalculation(){
             document.getElementById("input").value = "";
