@@ -136,6 +136,10 @@
                 document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
         }
+        function resetPrimeNumber(){
+            document.getElementById("textForm").value="";
+            document.getElementById("primeOutput").innerHTML ="";
+        }
 
         // ====================================================================================================
         // Game 3: Calculate - Peri
