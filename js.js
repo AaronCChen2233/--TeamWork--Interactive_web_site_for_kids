@@ -136,17 +136,6 @@
         // correct” or “You are wrong, work har1der”. 
         // =====================================================================================================
 
-        // =======================
-        // function start - start
-        // =======================
-        function start(){
-            var text=document.getelementById("text");
-            text.classList.add("effect");
-        }
-        // =======================
-        //function start - end
-        // =======================
-
         var n1, n2, n3;
         function createCalculationQuection(){
 
@@ -166,6 +155,12 @@
         }
 
         function calculation() {
+            var ans = document.getElementById("input").value;
+            if("" == ans){
+                document.getElementById("demo").innerHTML = "PLEASE ANSWER IT.";
+                return 
+            }
+        
             var sum = 0;
             var ans = document.getElementById("input").value;
             if("+" == n2) {
