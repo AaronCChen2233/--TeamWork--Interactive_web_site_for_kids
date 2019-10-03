@@ -56,6 +56,7 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
 
+            resetPrimeNumber();
             resetCalculation();
             resetLottery();
             //here will scroll to top then hide game;
@@ -128,6 +129,10 @@
             }else{
                 document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
+        }
+        function resetPrimeNumber(){
+            document.getElementById("textForm").value="";
+            document.getElementById("primeOutput").innerHTML ="";
         }
 
         // ====================================================================================================
