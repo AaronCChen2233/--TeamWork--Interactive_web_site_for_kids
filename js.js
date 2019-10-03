@@ -219,7 +219,7 @@
             if(chosenNumberArray.length == 3){
                 /*enable try again button*/
                 document.getElementById("playAgain").disabled = false;
-
+                
                 createRandomThreeNumbers();
 
                 /*For later check*/
@@ -229,8 +229,8 @@
                 /*default set you are lost*/
                 document.getElementById("result").innerHTML = "Sorry! you lost. The Lottery numbers are "+randomNumbersArray;
 
-                /*use json to compare can check all the numbers are correct(even the order)*/
-                if(JSON.stringify(chosenNumberArray) === JSON.stringify(randomNumbersArray)){
+                /*use tostring for compare can check all the numbers are correct(even the order)*/
+                if(chosenNumberArray.toString() === randomNumbersArray.toString()){
                     document.getElementById("result").innerHTML = "Congratulations! you won $10,000 prize. The Lottery numbers are " + randomNumbersArray;
                     return;
                 }
