@@ -24,6 +24,8 @@
             outputStyle.style.backgroundImage = 'url("image/ghost.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '10%';
+            outputStyle.style.backgroundPosition = 'left';
+            topFunction();
             
             }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
