@@ -113,7 +113,7 @@
             // condition to judge a Prime number or not
             if (document.getElementById('textForm').value == ""|| textForm >100 || textForm <= 0)  {
                 document.getElementById("primeOutput").innerHTML = ('ERROR. PLEASE TYPE A NUMBER 1 TO 100.😵');
-            
+                return false;
             }else{
                 for( i = 2 ; i < textForm ; i++){
                     if(textForm % i == 0){
