@@ -167,7 +167,6 @@
             }
         
             var sum = 0;
-            var ans = document.getElementById("input").value;
             if("+" == n2) {
                 sum = n1 + n3;
             } else if("-" == n2) {
