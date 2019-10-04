@@ -423,12 +423,11 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
 
+            resetPrimeNumber();
             resetCalculation();
             resetLottery();
             //here will scroll to top then hide game;
             nIntervId = window.setInterval(hideAllGame, 500);
-            resetPrimeNumber();
-
         }
 
         function hideAllGame(){

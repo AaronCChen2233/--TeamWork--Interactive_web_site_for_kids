@@ -24,6 +24,8 @@
             outputStyle.style.backgroundImage = 'url("image/ghost.png")';
             outputStyle.style.backgroundRepeat = 'no-repeat';
             outputStyle.style.backgroundSize = '10%';
+            outputStyle.style.backgroundPosition = 'left';
+            topFunction();
             
             }else{
             document.getElementById("outputName").innerHTML="Hi " + name + "!" + "<br>" + "Nice to meet you. Let’s start😁" + "<br>";
@@ -42,7 +44,7 @@
         }
 
         function scrollFunction() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                 mybutton.style.display = "block";
             } else {
                 mybutton.style.display = "none";
@@ -113,7 +115,7 @@
             var textForm = document.getElementById("textForm").value;
 
             // condition to judge a Prime number or not
-            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm < 0)  {
+            if (document.getElementById('textForm').value == ""|| textForm >100 || textForm <= 0)  {
                 document.getElementById("primeOutput").innerHTML = ('ERROR. PLEASE TYPE A NUMBER 1 TO 100.😵');
                 return false;
             }else{
@@ -133,6 +135,10 @@
             }else{
                 document.getElementById("primeOutput").innerHTML = (textForm + ' IS NOT A PRIME NUMBER😌😌😌');
             }
+        }
+        function resetPrimeNumber(){
+            document.getElementById("textForm").value="";
+            document.getElementById("primeOutput").innerHTML ="";
         }
 
         // ====================================================================================================
