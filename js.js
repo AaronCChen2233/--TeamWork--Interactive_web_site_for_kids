@@ -102,11 +102,7 @@
         // Game 2: Prime Number - Yuki
         // In this game the user inputs an integer and shows it's a prime number or not.
         // ==================================================================================================
-        function resetPrimeNumber(){
-            document.getElementById("textForm").value="";
-            document.getElementById("primeOutput").innerHTML ="";
-        }
-
+      
         function check() {
             // connect button element to JS
             // var button = document.getElementById("check");
