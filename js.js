@@ -244,7 +244,7 @@
                 /*check here*/
                 for(var i =0; i<3; i++){
 
-                    if(randomNumbersArray.some((arrNum) => arrNum == chosenNumberArray[i])){
+                    if(randomNumbersArray.includes(chosenNumberArray[i])){
 
                         correctCount++;
 
@@ -290,7 +290,7 @@
                 do {
                     rn = parseInt(Math.random()*5+1);
                     /*check numbers are distinct*/
-                }while(randomNumbersArray.some((arrNum) => rn === arrNum))
+                }while(randomNumbersArray.includes(rn))
                 randomNumbersArray.push(rn);
             }
             console.log(randomNumbersArray);
