@@ -176,9 +176,6 @@ li {
 }
 
 /*game3style*/
-.effect{
-    animation:blink 1s infinite;
-}
 
 #calculationBtn{
     background-color:yellow;
@@ -203,8 +200,13 @@ input[type="text"] {
 }
 
 
-.pic img{transform:scale(1,1);transition: all 1s ease-out;}
-.pic img:hover{transform:scale(4,4);}
+.pic img{
+    transform:scale(1,1);
+    transition: all 1s ease-out;
+}
+.pic img:hover{
+    transform:scale(4,4);
+}
 
 /*game4style*/
 #numberBox button{
